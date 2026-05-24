@@ -1,0 +1,953 @@
+{
+  "domain": {
+    "id": "D9",
+    "code": "D9",
+    "name": "Contrôles technologiques et surveillance",
+    "shortName": "Technologie",
+    "description": "Évalue les contrôles techniques, la protection des postes de travail, la gestion des vulnérabilités, les sauvegardes, les journaux et la supervision.",
+    "frameworkFocus": "Préparation ISO/IEC 27001",
+    "sourceNote": "Questions de préparation rédigées de manière indépendante. Ce fichier ne reproduit pas le texte normatif de la norme ISO.",
+    "defaultSource": "combined",
+    "weight": 1.3,
+    "answerScale": [
+      {
+        "value": "not_implemented",
+        "label": "Non mis en place",
+        "score": 0,
+        "description": "Aucun processus, contrôle ou pratique claire n'est en place."
+      },
+      {
+        "value": "informal",
+        "label": "Informel",
+        "score": 25,
+        "description": "La pratique existe de manière informelle, mais elle n'est pas clairement documentée ni suivie."
+      },
+      {
+        "value": "partial",
+        "label": "Partiellement mis en place",
+        "score": 50,
+        "description": "Le contrôle existe partiellement, mais il reste incomplet, irrégulier ou limité à certains cas."
+      },
+      {
+        "value": "implemented",
+        "label": "Mis en place",
+        "score": 75,
+        "description": "Le contrôle est appliqué de manière claire et peut être expliqué."
+      },
+      {
+        "value": "verified",
+        "label": "Mis en place et vérifié",
+        "score": 100,
+        "description": "Le contrôle est appliqué, documenté, et revu ou vérifié récemment."
+      }
+    ],
+    "scoringRules": {
+      "questionScore": "selectedAnswerScore + evidenceReferenceBonus",
+      "evidenceReferenceBonus": 5,
+      "maxQuestionScore": 100,
+      "domainScore": "average of answered question scores in the domain",
+      "globalReadinessScore": "average of all domain scores",
+      "completionScore": "answered questions / total questions",
+      "criticalGapRule": "critical controls with score < 50",
+      "weakControlRule": "controls with score < 60",
+      "importantNote": "Le score de préparation n'est pas la même chose que le taux de complétion du questionnaire."
+    },
+    "uiLabels": {
+      "answerQuestion": "Répondre à la question",
+      "implementationLevel": "Niveau de mise en place",
+      "optionalEvidence": "Note ou référence de preuve — optionnel",
+      "saveAnswer": "Enregistrer la réponse",
+      "nextQuestion": "Question suivante",
+      "previousQuestion": "Question précédente",
+      "domainProgress": "Progression du domaine",
+      "questionnaireCompletion": "Complétion du questionnaire",
+      "readinessScore": "Score de préparation",
+      "scoreExplanation": "Le score est calculé à partir du niveau de mise en place choisi pour chaque contrôle. Une référence de preuve optionnelle peut légèrement renforcer le score.",
+      "notCertification": "Ce résultat fournit une indication de préparation et d'analyse des écarts. Il ne constitue pas une certification, un audit formel ou un avis juridique."
+    },
+    "nextActionRules": [
+      {
+        "condition": "critical control score < 50",
+        "priority": "high",
+        "label": "Traiter les contrôles critiques faibles"
+      },
+      {
+        "condition": "domain score < 60",
+        "priority": "medium",
+        "label": "Améliorer le domaine le plus faible"
+      },
+      {
+        "condition": "answered questions without evidence reference > 10",
+        "priority": "medium",
+        "label": "Ajouter des références de preuves"
+      },
+      {
+        "condition": "completion score < 100",
+        "priority": "low",
+        "label": "Continuer l'évaluation"
+      }
+    ]
+  },
+  "companySectors": [
+    "saas",
+    "fintech",
+    "healthcare",
+    "ecommerce",
+    "education",
+    "telecom",
+    "professional_services",
+    "general_sme"
+  ],
+  "questionSchema": {
+    "id": "string",
+    "domainId": "D9",
+    "domainName": "Technological Controls & Monitoring",
+    "controlCode": "string",
+    "question": "string",
+    "helpText": "string",
+    "expectedEvidence": [
+      "string"
+    ],
+    "severity": "low | medium | high | critical",
+    "weight": "number",
+    "appliesTo": "all | CompanySector[]",
+    "source": "assessment | agent | integration | combined"
+  },
+  "coreQuestions": [
+    {
+      "id": "D9-C01",
+      "domainId": "D9",
+      "domainName": "Contrôles technologiques et surveillance",
+      "controlCode": "D9-C01",
+      "question": "Les systèmes, appareils, services cloud et applications importants sont-ils configurés selon des bases de sécurité définies ?",
+      "helpText": "Cette question vérifie si les systèmes sont durcis et configurés de manière cohérente plutôt qu’avec des réglages par défaut.",
+      "expectedEvidence": [
+        "Secure configuration baseline",
+        "Cloud configuration review",
+        "System hardening checklist",
+        "Configuration management records"
+      ],
+      "severity": "critical",
+      "weight": 1.4,
+      "appliesTo": "all",
+      "source": "combined",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D9-C02",
+      "domainId": "D9",
+      "domainName": "Contrôles technologiques et surveillance",
+      "controlCode": "D9-C02",
+      "question": "Votre organisation gère-t-elle les vulnérabilités par identification, priorisation, correction et vérification ?",
+      "helpText": "La gestion des vulnérabilités inclut des scans réguliers, la priorisation des correctifs et la vérification de leur application.",
+      "expectedEvidence": [
+        "Vulnerability scan results",
+        "Vulnerability management procedure",
+        "Remediation tracker",
+        "Patch verification records"
+      ],
+      "severity": "critical",
+      "weight": 1.5,
+      "appliesTo": "all",
+      "source": "combined",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D9-C03",
+      "domainId": "D9",
+      "domainName": "Contrôles technologiques et surveillance",
+      "controlCode": "D9-C03",
+      "question": "Votre organisation effectue-t-elle des sauvegardes régulières des données et configurations critiques ?",
+      "helpText": "Les sauvegardes doivent être testées régulièrement pour garantir leur exploitabilité en cas de sinistre.",
+      "expectedEvidence": [
+        "Backup policy or procedure",
+        "Backup job reports",
+        "Restore test records",
+        "Backup access control evidence"
+      ],
+      "severity": "critical",
+      "weight": 1.5,
+      "appliesTo": "all",
+      "source": "combined",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D9-C04",
+      "domainId": "D9",
+      "domainName": "Contrôles technologiques et surveillance",
+      "controlCode": "D9-C04",
+      "question": "Les événements de sécurité sont-ils journalisés, horodatés et conservés de manière sécurisée ?",
+      "helpText": "Les journaux doivent inclure les tentatives de connexion, les accès aux données, les modifications de configuration et les événements d’administration.",
+      "expectedEvidence": [
+        "Logging configuration evidence",
+        "Log retention settings",
+        "SIEM or monitoring dashboard",
+        "Log review records"
+      ],
+      "severity": "critical",
+      "weight": 1.4,
+      "appliesTo": "all",
+      "source": "combined",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D9-C05",
+      "domainId": "D9",
+      "domainName": "Contrôles technologiques et surveillance",
+      "controlCode": "D9-C05",
+      "question": "Votre organisation supervise-t-elle les systèmes et réseaux pour détecter les anomalies de sécurité ?",
+      "helpText": "La supervision permet de détecter les comportements anormaux, les tentatives d’intrusion et les défaillances techniques.",
+      "expectedEvidence": [
+        "Network diagram",
+        "Firewall or security group rules",
+        "External exposure scan results",
+        "Remote access configuration evidence"
+      ],
+      "severity": "critical",
+      "weight": 1.5,
+      "appliesTo": "all",
+      "source": "combined",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D9-C06",
+      "domainId": "D9",
+      "domainName": "Contrôles technologiques et surveillance",
+      "controlCode": "D9-C06",
+      "question": "Les modifications techniques sont-elles soumises à un processus de contrôle des changements ?",
+      "helpText": "Le contrôle des changements permet d’évaluer l’impact sécurité avant toute modification et de conserver une traçabilité.",
+      "expectedEvidence": [
+        "Endpoint protection dashboard",
+        "Anti-malware configuration",
+        "Device compliance reports",
+        "Security monitoring alerts or reports"
+      ],
+      "severity": "high",
+      "weight": 1.3,
+      "appliesTo": "all",
+      "source": "combined",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    }
+  ],
+  "sectorQuestions": [
+    {
+      "id": "D9-SAAS-01",
+      "domainId": "D9",
+      "domainName": "Contrôles technologiques et surveillance",
+      "controlCode": "D9-SAAS-01",
+      "question": "Les contrôles de sécurité pour l’environnement cloud SaaS sont-ils définis et appliqués ?",
+      "helpText": "SaaS platforms should monitor production systems, customer-facing services, administrative access, and unusual activity.",
+      "expectedEvidence": [
+        "Production monitoring dashboard",
+        "Cloud audit logging evidence",
+        "API monitoring records",
+        "Admin activity monitoring"
+      ],
+      "severity": "critical",
+      "weight": 1.5,
+      "appliesTo": [
+        "saas"
+      ],
+      "source": "combined",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D9-SAAS-02",
+      "domainId": "D9",
+      "domainName": "Contrôles technologiques et surveillance",
+      "controlCode": "D9-SAAS-02",
+      "question": "Les applications SaaS sont-elles protégées par des contrôles de sécurité applicative ?",
+      "helpText": "This checks whether the SaaS product delivery process includes technical controls to reduce software and supply chain risks.",
+      "expectedEvidence": [
+        "SAST or dependency scan results",
+        "Secrets scanning evidence",
+        "CI/CD security controls",
+        "Release security checklist"
+      ],
+      "severity": "critical",
+      "weight": 1.5,
+      "appliesTo": [
+        "saas"
+      ],
+      "source": "combined",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D9-SAAS-03",
+      "domainId": "D9",
+      "domainName": "Contrôles technologiques et surveillance",
+      "controlCode": "D9-SAAS-03",
+      "question": "Les vulnérabilités des dépendances SaaS sont-elles identifiées et corrigées régulièrement ?",
+      "helpText": "This verifies whether customer information in the SaaS platform is technically protected and recoverable.",
+      "expectedEvidence": [
+        "Database encryption evidence",
+        "Backup and restore test records",
+        "Data store access review",
+        "Key management evidence"
+      ],
+      "severity": "critical",
+      "weight": 1.5,
+      "appliesTo": [
+        "saas"
+      ],
+      "source": "combined",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D9-FIN-01",
+      "domainId": "D9",
+      "domainName": "Contrôles technologiques et surveillance",
+      "controlCode": "D9-FIN-01",
+      "question": "Les systèmes financiers sont-ils protégés par des contrôles techniques adaptés ?",
+      "helpText": "Fintech systems need strong supervision because technical anomalies can affect financial integrity and customer trust.",
+      "expectedEvidence": [
+        "Transaction monitoring dashboard",
+        "Financial API logs",
+        "Fraud monitoring evidence",
+        "Alert review records"
+      ],
+      "severity": "critical",
+      "weight": 1.5,
+      "appliesTo": [
+        "fintech"
+      ],
+      "source": "combined",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D9-FIN-02",
+      "domainId": "D9",
+      "domainName": "Contrôles technologiques et surveillance",
+      "controlCode": "D9-FIN-02",
+      "question": "Les données financières sont-elles chiffrées au repos et en transit ?",
+      "helpText": "This verifies whether important financial preuve is protected for accountability, investigation, and trust.",
+      "expectedEvidence": [
+        "Immutable or protected logging settings",
+        "Financial audit trail controls",
+        "Log access restrictions",
+        "Retention configuration evidence"
+      ],
+      "severity": "critical",
+      "weight": 1.5,
+      "appliesTo": [
+        "fintech"
+      ],
+      "source": "combined",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D9-FIN-03",
+      "domainId": "D9",
+      "domainName": "Contrôles technologiques et surveillance",
+      "controlCode": "D9-FIN-03",
+      "question": "Les transactions financières font-elles l’objet d’une surveillance automatisée ?",
+      "helpText": "This checks whether high-risk financial integrations are technically protected and change-controlled.",
+      "expectedEvidence": [
+        "API security configuration",
+        "Encryption evidence",
+        "MFA evidence for provider portals",
+        "Configuration change records"
+      ],
+      "severity": "critical",
+      "weight": 1.5,
+      "appliesTo": [
+        "fintech"
+      ],
+      "source": "combined",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D9-HEALTH-01",
+      "domainId": "D9",
+      "domainName": "Contrôles technologiques et surveillance",
+      "controlCode": "D9-HEALTH-01",
+      "question": "Les systèmes de santé sont-ils protégés contre les accès non autorisés et les logiciels malveillants ?",
+      "helpText": "Healthcare systems should be monitored because unauthorized access can affect patient information, care continuité, and operational trust.",
+      "expectedEvidence": [
+        "Clinical system logs",
+        "Patient record access monitoring",
+        "Healthcare tool monitoring dashboard",
+        "Unauthorized access alert records"
+      ],
+      "severity": "critical",
+      "weight": 1.5,
+      "appliesTo": [
+        "healthcare"
+      ],
+      "source": "combined",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D9-HEALTH-02",
+      "domainId": "D9",
+      "domainName": "Contrôles technologiques et surveillance",
+      "controlCode": "D9-HEALTH-02",
+      "question": "Les données de santé sont-elles protégées par chiffrement et contrôles d’accès techniques ?",
+      "helpText": "This verifies whether patient-related systems and information can be protected and recovered when needed.",
+      "expectedEvidence": [
+        "Patient data encryption evidence",
+        "Backup job reports",
+        "Restore test evidence",
+        "Access control settings"
+      ],
+      "severity": "critical",
+      "weight": 1.5,
+      "appliesTo": [
+        "healthcare"
+      ],
+      "source": "combined",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D9-HEALTH-03",
+      "domainId": "D9",
+      "domainName": "Contrôles technologiques et surveillance",
+      "controlCode": "D9-HEALTH-03",
+      "question": "Les systèmes critiques de santé sont-ils supervisés pour détecter les anomalies ?",
+      "helpText": "This checks whether healthcare devices and shared endpoints are protected against malware, unauthorized access, and misconfiguration.",
+      "expectedEvidence": [
+        "Endpoint protection reports",
+        "Shared workstation controls",
+        "Device security configuration",
+        "Patch or update records"
+      ],
+      "severity": "high",
+      "weight": 1.3,
+      "appliesTo": [
+        "healthcare"
+      ],
+      "source": "combined",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D9-ECOM-01",
+      "domainId": "D9",
+      "domainName": "Contrôles technologiques et surveillance",
+      "controlCode": "D9-ECOM-01",
+      "question": "Les systèmes e-commerce sont-ils protégés par des contrôles de sécurité technique ?",
+      "helpText": "E-commerce supervision should detect account compromise, admin misuse, checkout problems, suspicious changes, and customer-impacting security events.",
+      "expectedEvidence": [
+        "Store security monitoring",
+        "Admin activity logs",
+        "Checkout monitoring records",
+        "Suspicious activity alerts"
+      ],
+      "severity": "critical",
+      "weight": 1.4,
+      "appliesTo": [
+        "ecommerce"
+      ],
+      "source": "combined",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D9-ECOM-02",
+      "domainId": "D9",
+      "domainName": "Contrôles technologiques et surveillance",
+      "controlCode": "D9-ECOM-02",
+      "question": "Les données de paiement sont-elles protégées par des mesures de sécurité techniques ?",
+      "helpText": "This verifies whether key e-commerce systems are technically protected against exposure, unauthorized access, and misconfiguration.",
+      "expectedEvidence": [
+        "Store configuration review",
+        "Customer account access controls",
+        "Payment integration security settings",
+        "Support platform security configuration"
+      ],
+      "severity": "critical",
+      "weight": 1.4,
+      "appliesTo": [
+        "ecommerce"
+      ],
+      "source": "combined",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D9-ECOM-03",
+      "domainId": "D9",
+      "domainName": "Contrôles technologiques et surveillance",
+      "controlCode": "D9-ECOM-03",
+      "question": "Le site e-commerce et les API sont-ils surveillés pour détecter les intrusions ?",
+      "helpText": "This checks observable technical signals that affect customer trust and web security posture.",
+      "expectedEvidence": [
+        "Security headers scan",
+        "TLS scan report",
+        "DNS and email security review",
+        "External exposure scan"
+      ],
+      "severity": "high",
+      "weight": 1.3,
+      "appliesTo": [
+        "ecommerce"
+      ],
+      "source": "agent",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D9-EDU-01",
+      "domainId": "D9",
+      "domainName": "Contrôles technologiques et surveillance",
+      "controlCode": "D9-EDU-01",
+      "question": "Les systèmes éducatifs sont-ils protégés par des contrôles de sécurité adaptés ?",
+      "helpText": "Education systems should be monitored to protect student records, exams, staff information, and learning continuité.",
+      "expectedEvidence": [
+        "Student system logging evidence",
+        "Exam platform monitoring",
+        "Learning tool activity logs",
+        "Unauthorized access alert records"
+      ],
+      "severity": "critical",
+      "weight": 1.4,
+      "appliesTo": [
+        "education"
+      ],
+      "source": "combined",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D9-EDU-02",
+      "domainId": "D9",
+      "domainName": "Contrôles technologiques et surveillance",
+      "controlCode": "D9-EDU-02",
+      "question": "Les données des étudiants sont-elles protégées techniquement contre les fuites ?",
+      "helpText": "This verifies whether important education records are technically protected and recoverable.",
+      "expectedEvidence": [
+        "Backup reports",
+        "Access control settings",
+        "Secure configuration records",
+        "Restore test evidence"
+      ],
+      "severity": "critical",
+      "weight": 1.3,
+      "appliesTo": [
+        "education"
+      ],
+      "source": "combined",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D9-EDU-03",
+      "domainId": "D9",
+      "domainName": "Contrôles technologiques et surveillance",
+      "controlCode": "D9-EDU-03",
+      "question": "Les plateformes d’apprentissage sont-elles supervisées pour détecter les anomalies ?",
+      "helpText": "This checks whether connected education platforms are configured securely and revueed for access, sharing, and supervision.",
+      "expectedEvidence": [
+        "External platform security review",
+        "Cloud storage sharing settings",
+        "Video tool security settings",
+        "School management platform review"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "education"
+      ],
+      "source": "combined",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D9-TEL-01",
+      "domainId": "D9",
+      "domainName": "Contrôles technologiques et surveillance",
+      "controlCode": "D9-TEL-01",
+      "question": "Les équipements réseau sont-ils protégés par des configurations de sécurité ?",
+      "helpText": "Telecom and network operators need strong supervision for infrastructure changes, unauthorized access, service disruption, and suspicious activity.",
+      "expectedEvidence": [
+        "Network monitoring dashboard",
+        "Firewall/router logs",
+        "Configuration change monitoring",
+        "NOC/SOC alert records"
+      ],
+      "severity": "critical",
+      "weight": 1.5,
+      "appliesTo": [
+        "telecom"
+      ],
+      "source": "combined",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D9-TEL-02",
+      "domainId": "D9",
+      "domainName": "Contrôles technologiques et surveillance",
+      "controlCode": "D9-TEL-02",
+      "question": "Les communications réseau sont-elles protégées par chiffrement et contrôles d’accès ?",
+      "helpText": "This verifies whether infrastructure configuration is protected and recoverable to reduce outage and misconfiguration risks.",
+      "expectedEvidence": [
+        "Network configuration backups",
+        "Configuration version history",
+        "Change review records",
+        "Rollback procedure evidence"
+      ],
+      "severity": "critical",
+      "weight": 1.5,
+      "appliesTo": [
+        "telecom"
+      ],
+      "source": "combined",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D9-TEL-03",
+      "domainId": "D9",
+      "domainName": "Contrôles technologiques et surveillance",
+      "controlCode": "D9-TEL-03",
+      "question": "L’infrastructure réseau est-elle supervisée en continu pour détecter les intrusions ?",
+      "helpText": "This checks external and internal exposure that could affect network infrastructure and customer connectivity.",
+      "expectedEvidence": [
+        "External exposure scan",
+        "Management interface review",
+        "Remote access configuration evidence",
+        "Upstream connectivity security review"
+      ],
+      "severity": "critical",
+      "weight": 1.5,
+      "appliesTo": [
+        "telecom"
+      ],
+      "source": "combined",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D9-SERV-01",
+      "domainId": "D9",
+      "domainName": "Contrôles technologiques et surveillance",
+      "controlCode": "D9-SERV-01",
+      "question": "Les outils de gestion des dossiers clients sont-ils protégés techniquement ?",
+      "helpText": "Professional services firms should protect collaboration and document systems that store client information and deliverables.",
+      "expectedEvidence": [
+        "Collaboration platform security settings",
+        "Document repository access logs",
+        "Remote work platform configuration",
+        "Monitoring records"
+      ],
+      "severity": "high",
+      "weight": 1.3,
+      "appliesTo": [
+        "professional_services"
+      ],
+      "source": "combined",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D9-SERV-02",
+      "domainId": "D9",
+      "domainName": "Contrôles technologiques et surveillance",
+      "controlCode": "D9-SERV-02",
+      "question": "Les données clients sont-elles protégées par des contrôles d’accès et de chiffrement ?",
+      "helpText": "This verifies whether client information can be protected, recovered, and restricted to authorized project members.",
+      "expectedEvidence": [
+        "Backup evidence",
+        "Access control configuration",
+        "Encryption settings where applicable",
+        "Project workspace security review"
+      ],
+      "severity": "high",
+      "weight": 1.3,
+      "appliesTo": [
+        "professional_services"
+      ],
+      "source": "combined",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D9-SERV-03",
+      "domainId": "D9",
+      "domainName": "Contrôles technologiques et surveillance",
+      "controlCode": "D9-SERV-03",
+      "question": "Les systèmes de services professionnels sont-ils surveillés pour détecter les anomalies ?",
+      "helpText": "This checks whether remote work devices and access paths are protected with technical controls such as MFA, device security, updates, and endpoint protection.",
+      "expectedEvidence": [
+        "Endpoint protection reports",
+        "MFA evidence",
+        "Device compliance records",
+        "Remote access security settings"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "professional_services"
+      ],
+      "source": "combined",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D9-SME-01",
+      "domainId": "D9",
+      "domainName": "Contrôles technologiques et surveillance",
+      "controlCode": "D9-SME-01",
+      "question": "Les postes de travail et serveurs de la PME sont-ils protégés par des mesures techniques simples ?",
+      "helpText": "For SMEs, basic controls such as MFA, updates, endpoint protection, sauvegardes, and secure cloud settings can significantly reduce risk.",
+      "expectedEvidence": [
+        "MFA settings",
+        "Endpoint protection evidence",
+        "Cloud storage security settings",
+        "Software update records"
+      ],
+      "severity": "critical",
+      "weight": 1.3,
+      "appliesTo": [
+        "general_sme"
+      ],
+      "source": "combined",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D9-SME-02",
+      "domainId": "D9",
+      "domainName": "Contrôles technologiques et surveillance",
+      "controlCode": "D9-SME-02",
+      "question": "Les données importantes de la PME sont-elles sauvegardées régulièrement ?",
+      "helpText": "This checks whether the company can recover important information if a device fails, ransomware occurs, or data is accidentally deleted.",
+      "expectedEvidence": [
+        "Backup configuration",
+        "Backup job reports",
+        "Restore test record",
+        "Critical file backup list"
+      ],
+      "severity": "critical",
+      "weight": 1.4,
+      "appliesTo": [
+        "general_sme"
+      ],
+      "source": "combined",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D9-SME-03",
+      "domainId": "D9",
+      "domainName": "Contrôles technologiques et surveillance",
+      "controlCode": "D9-SME-03",
+      "question": "Les systèmes sont-ils surveillés pour détecter les problèmes de sécurité courants ?",
+      "helpText": "This checks observable external security signals that can often be improved quickly in a small company environment.",
+      "expectedEvidence": [
+        "Website security scan",
+        "TLS scan report",
+        "DNS/email security check",
+        "External exposure review"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "general_sme"
+      ],
+      "source": "agent",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    }
+  ],
+  "selectionLogic": {
+    "description": "For each company, return all core questions plus the sector-specific questions matching the company's sector.",
+    "expectedQuestionCountPerCompany": 9,
+    "pseudoCode": "questions = coreQuestions + sectorQuestions.filter(q => q.appliesTo.includes(company.sector))"
+  }
+}

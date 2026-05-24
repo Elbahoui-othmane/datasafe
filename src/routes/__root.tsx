@@ -1,0 +1,97 @@
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import {
+  Outlet, Link, createRootRouteWithContext, useRouter, useRouterState, HeadContent, Scripts,
+} from "@tanstack/react-router";
+
+import appCss from "../styles.css?url";
+import { Sidebar } from "@/components/averonix/Sidebar";
+import { TopHeader } from "@/components/averonix/TopHeader";
+import { Toaster } from "@/components/ui/sonner";
+
+function NotFoundComponent() {
+  return (
+    <div className="flex min-h-screen items-center justify-center bg-background px-4">
+      <div className="max-w-md text-center">
+        <h1 className="text-7xl font-bold text-foreground">404</h1>
+        <h2 className="mt-4 text-xl font-semibold">Page not found</h2>
+        <div className="mt-6">
+          <Link to="/" className="inline-flex items-center justify-center rounded-md bg-[var(--primary)] px-4 py-2 text-sm font-medium text-white hover:bg-[var(--primary-hover)]">Go home</Link>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+  console.error(error);
+  const router = useRouter();
+  return (
+    <div className="flex min-h-screen items-center justify-center bg-background px-4">
+      <div className="max-w-md text-center">
+        <h1 className="text-xl font-semibold">This page didn't load</h1>
+        <p className="mt-2 text-sm text-muted-foreground">Something went wrong on our end.</p>
+        <div className="mt-6 flex flex-wrap justify-center gap-2">
+          <button onClick={() => { router.invalidate(); reset(); }} className="rounded-md bg-[var(--primary)] px-4 py-2 text-sm font-medium text-white hover:bg-[var(--primary-hover)]">Try again</button>
+          <a href="/" className="rounded-md border border-input bg-background px-4 py-2 text-sm font-medium hover:bg-accent">Go home</a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
+  head: () => ({
+    meta: [
+      { charSet: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { title: "Averonix — Compliance Cloud" },
+      { name: "description", content: "Averonix is a compliance readiness platform for modern security teams." },
+    ],
+    links: [
+      { rel: "stylesheet", href: appCss },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" },
+    ],
+  }),
+  shellComponent: RootShell,
+  component: RootComponent,
+  notFoundComponent: NotFoundComponent,
+  errorComponent: ErrorComponent,
+});
+
+function RootShell({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en">
+      <head><HeadContent /></head>
+      <body>{children}<Scripts /></body>
+    </html>
+  );
+}
+
+function RootComponent() {
+  const { queryClient } = Route.useRouteContext();
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const isAuthRoute = ["/login", "/request-demo", "/demo-ready", "/onboarding", "/preview-website"].some(
+    (p) => pathname === p || pathname.startsWith(p + "/"),
+  );
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      {isAuthRoute ? (
+        <Outlet />
+      ) : (
+        <div className="flex h-screen w-full overflow-hidden bg-background">
+          <Sidebar />
+          <div className="flex flex-1 flex-col overflow-hidden">
+            <TopHeader />
+            <main className="flex-1 overflow-y-auto">
+              <Outlet />
+            </main>
+          </div>
+        </div>
+      )}
+      <Toaster position="top-right" />
+    </QueryClientProvider>
+  );
+}

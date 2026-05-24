@@ -1,0 +1,953 @@
+{
+  "domain": {
+    "id": "D2",
+    "code": "D2",
+    "name": "Leadership, politique et responsabilités",
+    "shortName": "Leadership",
+    "description": "Vérifie l’engagement de la direction, l’existence d’une politique de sécurité, les rôles et responsabilités sécurité, et la coordination des rôles clés.",
+    "frameworkFocus": "Préparation ISO/IEC 27001",
+    "sourceNote": "Questions de préparation rédigées de manière indépendante. Ce fichier ne reproduit pas le texte normatif de la norme ISO.",
+    "defaultSource": "assessment",
+    "weight": 1.1,
+    "answerScale": [
+      {
+        "value": "not_implemented",
+        "label": "Non mis en place",
+        "score": 0,
+        "description": "Aucun processus, contrôle ou pratique claire n'est en place."
+      },
+      {
+        "value": "informal",
+        "label": "Informel",
+        "score": 25,
+        "description": "La pratique existe de manière informelle, mais elle n'est pas clairement documentée ni suivie."
+      },
+      {
+        "value": "partial",
+        "label": "Partiellement mis en place",
+        "score": 50,
+        "description": "Le contrôle existe partiellement, mais il reste incomplet, irrégulier ou limité à certains cas."
+      },
+      {
+        "value": "implemented",
+        "label": "Mis en place",
+        "score": 75,
+        "description": "Le contrôle est appliqué de manière claire et peut être expliqué."
+      },
+      {
+        "value": "verified",
+        "label": "Mis en place et vérifié",
+        "score": 100,
+        "description": "Le contrôle est appliqué, documenté, et revu ou vérifié récemment."
+      }
+    ],
+    "scoringRules": {
+      "questionScore": "selectedAnswerScore + evidenceReferenceBonus",
+      "evidenceReferenceBonus": 5,
+      "maxQuestionScore": 100,
+      "domainScore": "average of answered question scores in the domain",
+      "globalReadinessScore": "average of all domain scores",
+      "completionScore": "answered questions / total questions",
+      "criticalGapRule": "critical controls with score < 50",
+      "weakControlRule": "controls with score < 60",
+      "importantNote": "Le score de préparation n'est pas la même chose que le taux de complétion du questionnaire."
+    },
+    "uiLabels": {
+      "answerQuestion": "Répondre à la question",
+      "implementationLevel": "Niveau de mise en place",
+      "optionalEvidence": "Note ou référence de preuve — optionnel",
+      "saveAnswer": "Enregistrer la réponse",
+      "nextQuestion": "Question suivante",
+      "previousQuestion": "Question précédente",
+      "domainProgress": "Progression du domaine",
+      "questionnaireCompletion": "Complétion du questionnaire",
+      "readinessScore": "Score de préparation",
+      "scoreExplanation": "Le score est calculé à partir du niveau de mise en place choisi pour chaque contrôle. Une référence de preuve optionnelle peut légèrement renforcer le score.",
+      "notCertification": "Ce résultat fournit une indication de préparation et d'analyse des écarts. Il ne constitue pas une certification, un audit formel ou un avis juridique."
+    },
+    "nextActionRules": [
+      {
+        "condition": "critical control score < 50",
+        "priority": "high",
+        "label": "Traiter les contrôles critiques faibles"
+      },
+      {
+        "condition": "domain score < 60",
+        "priority": "medium",
+        "label": "Améliorer le domaine le plus faible"
+      },
+      {
+        "condition": "answered questions without evidence reference > 10",
+        "priority": "medium",
+        "label": "Ajouter des références de preuves"
+      },
+      {
+        "condition": "completion score < 100",
+        "priority": "low",
+        "label": "Continuer l'évaluation"
+      }
+    ]
+  },
+  "companySectors": [
+    "saas",
+    "fintech",
+    "healthcare",
+    "ecommerce",
+    "education",
+    "telecom",
+    "professional_services",
+    "general_sme"
+  ],
+  "questionSchema": {
+    "id": "string",
+    "domainId": "D2",
+    "domainName": "Leadership, Policy & Responsibilities",
+    "controlCode": "string",
+    "question": "string",
+    "helpText": "string",
+    "expectedEvidence": [
+      "string"
+    ],
+    "severity": "low | medium | high | critical",
+    "weight": "number",
+    "appliesTo": "all | CompanySector[]",
+    "source": "assessment | agent | integration | combined"
+  },
+  "coreQuestions": [
+    {
+      "id": "D2-C01",
+      "domainId": "D2",
+      "domainName": "Leadership, politique et responsabilités",
+      "controlCode": "D2-C01",
+      "question": "La direction montre-t-elle un engagement clair en faveur de la sécurité de l’information ?",
+      "helpText": "Cette question vérifie si la direction définit une politique de sécurité, alloue des ressources, communique sur l’importance de la sécurité et intègre la sécurité dans les décisions stratégiques.",
+      "expectedEvidence": [
+        "Information security owner assignment",
+        "ISMS responsibility matrix",
+        "Management meeting notes",
+        "Security governance charter"
+      ],
+      "severity": "critical",
+      "weight": 1.4,
+      "appliesTo": "all",
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D2-C02",
+      "domainId": "D2",
+      "domainName": "Leadership, politique et responsabilités",
+      "controlCode": "D2-C02",
+      "question": "Votre organisation a-t-elle défini une politique de sécurité de l’information approuvée par la direction ?",
+      "helpText": "La politique de sécurité de l’information est un document fondateur qui exprime les intentions et orientations de l’organisation en matière de sécurité.",
+      "expectedEvidence": [
+        "Approved information security policy",
+        "Policy approval record",
+        "Policy version history",
+        "Management sign-off"
+      ],
+      "severity": "critical",
+      "weight": 1.4,
+      "appliesTo": "all",
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D2-C03",
+      "domainId": "D2",
+      "domainName": "Leadership, politique et responsabilités",
+      "controlCode": "D2-C03",
+      "question": "Les rôles et responsabilités en matière de sécurité de l’information sont-ils clairement attribués et communiqués ?",
+      "helpText": "Cette question vérifie si les rôles sécurité (RSSI, responsables de domaine, propriétaires d’actifs, correspondants sécurité) sont clairement définis et connus.",
+      "expectedEvidence": [
+        "Policy communication record",
+        "Employee acknowledgement records",
+        "Internal policy portal or shared folder",
+        "Onboarding or awareness material"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": "all",
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D2-C04",
+      "domainId": "D2",
+      "domainName": "Leadership, politique et responsabilités",
+      "controlCode": "D2-C04",
+      "question": "La direction a-t-elle défini des objectifs de sécurité de l’information mesurables et alignés sur les objectifs métier ?",
+      "helpText": "Les objectifs sécurité doivent être cohérents avec la politique de sécurité, mesurables, communiqués et mis à jour périodiquement.",
+      "expectedEvidence": [
+        "Security roles and responsibilities matrix",
+        "Job descriptions with security responsibilities",
+        "RACI matrix",
+        "Internal communication records"
+      ],
+      "severity": "critical",
+      "weight": 1.4,
+      "appliesTo": "all",
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D2-C05",
+      "domainId": "D2",
+      "domainName": "Leadership, politique et responsabilités",
+      "controlCode": "D2-C05",
+      "question": "Existe-t-il un processus de communication interne pour les informations liées à la sécurité de l’information ?",
+      "helpText": "La communication interne permet de diffuser les informations importantes sur la sécurité, les procédures, les alertes et les résultats des revues.",
+      "expectedEvidence": [
+        "Management review agenda",
+        "Security steering committee notes",
+        "Risk review records",
+        "Security KPI or readiness progress report"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": "all",
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D2-C06",
+      "domainId": "D2",
+      "domainName": "Leadership, politique et responsabilités",
+      "controlCode": "D2-C06",
+      "question": "La direction examine-t-elle régulièrement le SMSI lors de revues de management planifiées ?",
+      "helpText": "Les revues de management permettent à la direction d’évaluer l’efficacité du SMSI, d’identifier les axes d’amélioration et de prendre des décisions éclairées.",
+      "expectedEvidence": [
+        "ISMS reporting responsibility assignment",
+        "Security dashboard or report template",
+        "Management reporting schedule",
+        "Security performance review notes"
+      ],
+      "severity": "medium",
+      "weight": 1.0,
+      "appliesTo": "all",
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    }
+  ],
+  "sectorQuestions": [
+    {
+      "id": "D2-SAAS-01",
+      "domainId": "D2",
+      "domainName": "Leadership, politique et responsabilités",
+      "controlCode": "D2-SAAS-01",
+      "question": "La direction de l’entreprise SaaS examine-t-elle régulièrement les questions de sécurité et les priorités de sécurité de l’information ?",
+      "helpText": "SaaS companies need clear ownership for production security, customer data protection, platform reliability, and secure development practices.",
+      "expectedEvidence": [
+        "Product security owner assignment",
+        "Production environment ownership matrix",
+        "Engineering security responsibilities",
+        "SaaS security governance notes"
+      ],
+      "severity": "critical",
+      "weight": 1.3,
+      "appliesTo": [
+        "saas"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D2-SAAS-02",
+      "domainId": "D2",
+      "domainName": "Leadership, politique et responsabilités",
+      "controlCode": "D2-SAAS-02",
+      "question": "Un responsable sécurité est-il clairement identifié pour superviser les pratiques de sécurité au sein de l’entreprise SaaS ?",
+      "helpText": "SaaS security depends on multiple teams, not only IT. Each team should understand its role in protecting customer-facing services and information.",
+      "expectedEvidence": [
+        "Team-specific security responsibilities",
+        "Engineering onboarding checklist",
+        "Support access rules",
+        "DevOps security procedures"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "saas"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D2-SAAS-03",
+      "domainId": "D2",
+      "domainName": "Leadership, politique et responsabilités",
+      "controlCode": "D2-SAAS-03",
+      "question": "Existe-t-il des canaux de communication permettant aux équipes techniques de signaler les problèmes de sécurité à la direction ?",
+      "helpText": "This checks whether SaaS-specific risks are visible to management and included in readiness discussions.",
+      "expectedEvidence": [
+        "SaaS risk review notes",
+        "Security roadmap",
+        "Production incident review records",
+        "Secure development improvement plan"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "saas"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D2-FIN-01",
+      "domainId": "D2",
+      "domainName": "Leadership, politique et responsabilités",
+      "controlCode": "D2-FIN-01",
+      "question": "La direction de l’organisation financière approuve-t-elle les décisions importantes en matière de sécurité de l’information ?",
+      "helpText": "Fintech organizations should clearly assign ownership for the security of payment flows, financial platforms, transaction data, and fraud-related controls.",
+      "expectedEvidence": [
+        "Financial security responsibility matrix",
+        "Payment process owner assignment",
+        "Transaction risk owner list",
+        "Security governance meeting notes"
+      ],
+      "severity": "critical",
+      "weight": 1.4,
+      "appliesTo": [
+        "fintech"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D2-FIN-02",
+      "domainId": "D2",
+      "domainName": "Leadership, politique et responsabilités",
+      "controlCode": "D2-FIN-02",
+      "question": "Les responsabilités en matière de sécurité des données financières sont-elles clairement attribuées ?",
+      "helpText": "Security obligations from banking partners, payment providers, regulators, and contracts should have clear internal owners.",
+      "expectedEvidence": [
+        "Obligation owner register",
+        "Banking or payment security requirement owner list",
+        "Compliance responsibility matrix",
+        "Contractual security tracking document"
+      ],
+      "severity": "high",
+      "weight": 1.3,
+      "appliesTo": [
+        "fintech"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D2-FIN-03",
+      "domainId": "D2",
+      "domainName": "Leadership, politique et responsabilités",
+      "controlCode": "D2-FIN-03",
+      "question": "Existe-t-il un reporting régulier sur les risques sécurité à destination de la direction financière ?",
+      "helpText": "This checks whether leadership actively oversees the risks that can affect financial trust, service continuité, and transaction security.",
+      "expectedEvidence": [
+        "Financial risk review records",
+        "Fraud and security steering notes",
+        "Payment incident review",
+        "Risk treatment decisions"
+      ],
+      "severity": "critical",
+      "weight": 1.3,
+      "appliesTo": [
+        "fintech"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D2-HEALTH-01",
+      "domainId": "D2",
+      "domainName": "Leadership, politique et responsabilités",
+      "controlCode": "D2-HEALTH-01",
+      "question": "La direction de l’établissement de santé soutient-elle activement les initiatives de sécurité de l’information ?",
+      "helpText": "Healthcare organizations should clearly assign security responsibility for systems that support patient care, clinical operations, and medical records.",
+      "expectedEvidence": [
+        "Clinical system ownership matrix",
+        "Patient information security responsibility assignment",
+        "Healthcare operations security role list",
+        "Management approval records"
+      ],
+      "severity": "critical",
+      "weight": 1.4,
+      "appliesTo": [
+        "healthcare"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D2-HEALTH-02",
+      "domainId": "D2",
+      "domainName": "Leadership, politique et responsabilités",
+      "controlCode": "D2-HEALTH-02",
+      "question": "Les responsabilités en matière de protection des données de santé sont-elles clairement définies ?",
+      "helpText": "Healthcare security often involves clinical, administrative, and external actors. Responsibilities should be communicated according to role and access.",
+      "expectedEvidence": [
+        "Role-based security instructions",
+        "Staff acknowledgement records",
+        "Partner responsibility notes",
+        "Security awareness material for clinical staff"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "healthcare"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D2-HEALTH-03",
+      "domainId": "D2",
+      "domainName": "Leadership, politique et responsabilités",
+      "controlCode": "D2-HEALTH-03",
+      "question": "Existe-t-il une communication structurée entre la direction et les équipes médicales sur les sujets de sécurité ?",
+      "helpText": "This checks whether healthcare-specific security risks are visible to management and revueed as part of operational readiness.",
+      "expectedEvidence": [
+        "Healthcare security risk review",
+        "Clinical system availability review",
+        "Patient information risk notes",
+        "Service continuity meeting records"
+      ],
+      "severity": "critical",
+      "weight": 1.3,
+      "appliesTo": [
+        "healthcare"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D2-ECOM-01",
+      "domainId": "D2",
+      "domainName": "Leadership, politique et responsabilités",
+      "controlCode": "D2-ECOM-01",
+      "question": "La direction de l’e-commerce s’assure-t-elle que les objectifs de sécurité sont alignés sur les objectifs commerciaux ?",
+      "helpText": "E-commerce security requires clear ownership for the platforms and workflows that support sales, customer trust, and payment processing.",
+      "expectedEvidence": [
+        "E-commerce platform owner assignment",
+        "Payment flow responsibility matrix",
+        "Customer account security owner",
+        "Order management system owner"
+      ],
+      "severity": "critical",
+      "weight": 1.3,
+      "appliesTo": [
+        "ecommerce"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D2-ECOM-02",
+      "domainId": "D2",
+      "domainName": "Leadership, politique et responsabilités",
+      "controlCode": "D2-ECOM-02",
+      "question": "Les responsables de la sécurité des données clients sont-ils identifiés ?",
+      "helpText": "Customer, order, and support information may be handled by several teams. Each team should understand acceptable use, access, and security responsibilities.",
+      "expectedEvidence": [
+        "Team responsibility matrix",
+        "Support team security instructions",
+        "Store admin access rules",
+        "Marketing tool usage policy"
+      ],
+      "severity": "high",
+      "weight": 1.1,
+      "appliesTo": [
+        "ecommerce"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D2-ECOM-03",
+      "domainId": "D2",
+      "domainName": "Leadership, politique et responsabilités",
+      "controlCode": "D2-ECOM-03",
+      "question": "Existe-t-il un processus de communication des incidents de sécurité vers la direction ?",
+      "helpText": "This checks whether e-commerce risks are revueed by management, including availability, account compromise, payment-related risks, and fournisseur dependencies.",
+      "expectedEvidence": [
+        "E-commerce risk review notes",
+        "Customer account security review",
+        "Payment trust risk notes",
+        "Third-party platform review"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "ecommerce"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D2-EDU-01",
+      "domainId": "D2",
+      "domainName": "Leadership, politique et responsabilités",
+      "controlCode": "D2-EDU-01",
+      "question": "La direction de l’établissement éducatif montre-t-elle un engagement visible en faveur de la sécurité des données ?",
+      "helpText": "Education organizations should clearly assign responsibility for systems that support learning, exams, communication, and administration.",
+      "expectedEvidence": [
+        "Education system ownership matrix",
+        "Student information security owner",
+        "Exam platform responsibility assignment",
+        "Administrative records owner list"
+      ],
+      "severity": "critical",
+      "weight": 1.3,
+      "appliesTo": [
+        "education"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D2-EDU-02",
+      "domainId": "D2",
+      "domainName": "Leadership, politique et responsabilités",
+      "controlCode": "D2-EDU-02",
+      "question": "Les rôles et responsabilités en matière de protection des données des étudiants sont-ils attribués ?",
+      "helpText": "Education security depends on many roles with different access levels, including teachers, administrators, IT staff, and external providers.",
+      "expectedEvidence": [
+        "Role-based security instructions",
+        "Staff acknowledgement records",
+        "External provider responsibility notes",
+        "Awareness material for education staff"
+      ],
+      "severity": "high",
+      "weight": 1.1,
+      "appliesTo": [
+        "education"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D2-EDU-03",
+      "domainId": "D2",
+      "domainName": "Leadership, politique et responsabilités",
+      "controlCode": "D2-EDU-03",
+      "question": "Les enseignants et le personnel sont-ils informés des canaux de signalement des problèmes de sécurité ?",
+      "helpText": "This checks whether education-specific security risks are escalated and revueed by leadership.",
+      "expectedEvidence": [
+        "Student data risk review",
+        "Exam system risk review",
+        "Learning platform availability notes",
+        "Management meeting records"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "education"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D2-TEL-01",
+      "domainId": "D2",
+      "domainName": "Leadership, politique et responsabilités",
+      "controlCode": "D2-TEL-01",
+      "question": "La direction de l’opérateur télécom examine-t-elle les performances et les incidents de sécurité ?",
+      "helpText": "Telecom and network operators need clear ownership for infrastructure security, operations, supervision, customer connectivity, and external dependencies.",
+      "expectedEvidence": [
+        "Network security owner assignment",
+        "NOC/SOC responsibility matrix",
+        "Operational system ownership list",
+        "Infrastructure governance notes"
+      ],
+      "severity": "critical",
+      "weight": 1.4,
+      "appliesTo": [
+        "telecom"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D2-TEL-02",
+      "domainId": "D2",
+      "domainName": "Leadership, politique et responsabilités",
+      "controlCode": "D2-TEL-02",
+      "question": "Les responsabilités pour la sécurité des infrastructures critiques sont-elles clairement attribuées ?",
+      "helpText": "Network operations often involve multiple teams and providers. Each should understand responsibilities for access, change, escalation, and incident reporting.",
+      "expectedEvidence": [
+        "NOC/SOC responsibility matrix",
+        "Field team security instructions",
+        "External maintenance responsibility notes",
+        "Provider access responsibility list"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "telecom"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D2-TEL-03",
+      "domainId": "D2",
+      "domainName": "Leadership, politique et responsabilités",
+      "controlCode": "D2-TEL-03",
+      "question": "Existe-t-il des procédures de communication interne pour les alertes de sécurité réseau ?",
+      "helpText": "This checks whether leadership revues risks that can affect service availability, customer connectivity, infrastructure access, and operational resilience.",
+      "expectedEvidence": [
+        "Network risk review records",
+        "Availability or outage review notes",
+        "Incident response governance records",
+        "Upstream dependency review"
+      ],
+      "severity": "critical",
+      "weight": 1.3,
+      "appliesTo": [
+        "telecom"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D2-SERV-01",
+      "domainId": "D2",
+      "domainName": "Leadership, politique et responsabilités",
+      "controlCode": "D2-SERV-01",
+      "question": "La direction du cabinet de services professionnels s’engage-t-elle formellement en faveur de la sécurité ?",
+      "helpText": "Professional services firms should clearly assign responsibility for protecting client information across projects, workspaces, and deliverables.",
+      "expectedEvidence": [
+        "Client information responsibility matrix",
+        "Project workspace owner list",
+        "Contract repository owner",
+        "Client deliverable handling procedure"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "professional_services"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D2-SERV-02",
+      "domainId": "D2",
+      "domainName": "Leadership, politique et responsabilités",
+      "controlCode": "D2-SERV-02",
+      "question": "Les responsabilités de sécurité pour les données clients sont-elles attribuées et communiquées ?",
+      "helpText": "Professional services often involve temporary or external workers who may access client information. Their responsibilities should be clearly communicated.",
+      "expectedEvidence": [
+        "Consultant security responsibilities",
+        "Contractor onboarding checklist",
+        "NDA or confidentiality acknowledgement records",
+        "Project access rules"
+      ],
+      "severity": "high",
+      "weight": 1.1,
+      "appliesTo": [
+        "professional_services"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D2-SERV-03",
+      "domainId": "D2",
+      "domainName": "Leadership, politique et responsabilités",
+      "controlCode": "D2-SERV-03",
+      "question": "Les équipes sont-elles informées des procédures à suivre en cas d’incident de sécurité ?",
+      "helpText": "This checks whether client-facing and project-specific security risks are revueed by leadership.",
+      "expectedEvidence": [
+        "Client confidentiality risk review",
+        "Project risk notes",
+        "Remote work security review",
+        "Collaboration platform access review"
+      ],
+      "severity": "medium",
+      "weight": 1.1,
+      "appliesTo": [
+        "professional_services"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D2-SME-01",
+      "domainId": "D2",
+      "domainName": "Leadership, politique et responsabilités",
+      "controlCode": "D2-SME-01",
+      "question": "Le dirigeant de la PME montre-t-il son engagement pour la sécurité de l’information ?",
+      "helpText": "For SMEs, security ownership may be internal or outsourced, but it should be clear and understood.",
+      "expectedEvidence": [
+        "Security responsibility assignment",
+        "IT administrator assignment",
+        "Backup owner assignment",
+        "Incident response owner assignment"
+      ],
+      "severity": "critical",
+      "weight": 1.3,
+      "appliesTo": [
+        "general_sme"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D2-SME-02",
+      "domainId": "D2",
+      "domainName": "Leadership, politique et responsabilités",
+      "controlCode": "D2-SME-02",
+      "question": "Les responsabilités en matière de sécurité sont-elles clairement attribuées dans votre organisation ?",
+      "helpText": "SMEs should have simple but approved security rules that employees can understand and follow.",
+      "expectedEvidence": [
+        "Basic security policy",
+        "Password and account rules",
+        "Device usage rules",
+        "Backup procedure"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "general_sme"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D2-SME-03",
+      "domainId": "D2",
+      "domainName": "Leadership, politique et responsabilités",
+      "controlCode": "D2-SME-03",
+      "question": "Les employés savent-ils à qui s’adresser en cas de problème de sécurité ?",
+      "helpText": "External IT providers may manage systems, users, devices, sauvegardes, and incidents. Responsibilities should not be ambiguous.",
+      "expectedEvidence": [
+        "IT provider contract",
+        "Service responsibility matrix",
+        "Support agreement",
+        "Provider access and escalation rules"
+      ],
+      "severity": "high",
+      "weight": 1.1,
+      "appliesTo": [
+        "general_sme"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    }
+  ],
+  "selectionLogic": {
+    "description": "For each company, return all core questions plus the sector-specific questions matching the company's sector.",
+    "expectedQuestionCountPerCompany": 9,
+    "pseudoCode": "questions = coreQuestions + sectorQuestions.filter(q => q.appliesTo.includes(company.sector))"
+  }
+}

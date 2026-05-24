@@ -1,0 +1,953 @@
+{
+  "domain": {
+    "id": "D8",
+    "code": "D8",
+    "name": "Contrôles humains, physiques et d’accès",
+    "shortName": "Accès",
+    "description": "Vérifie les contrôles d’accès physique et logique, la gestion des habilitations, et les mesures de sécurité physique.",
+    "frameworkFocus": "Préparation ISO/IEC 27001",
+    "sourceNote": "Questions de préparation rédigées de manière indépendante. Ce fichier ne reproduit pas le texte normatif de la norme ISO.",
+    "defaultSource": "combined",
+    "weight": 1.1,
+    "answerScale": [
+      {
+        "value": "not_implemented",
+        "label": "Non mis en place",
+        "score": 0,
+        "description": "Aucun processus, contrôle ou pratique claire n'est en place."
+      },
+      {
+        "value": "informal",
+        "label": "Informel",
+        "score": 25,
+        "description": "La pratique existe de manière informelle, mais elle n'est pas clairement documentée ni suivie."
+      },
+      {
+        "value": "partial",
+        "label": "Partiellement mis en place",
+        "score": 50,
+        "description": "Le contrôle existe partiellement, mais il reste incomplet, irrégulier ou limité à certains cas."
+      },
+      {
+        "value": "implemented",
+        "label": "Mis en place",
+        "score": 75,
+        "description": "Le contrôle est appliqué de manière claire et peut être expliqué."
+      },
+      {
+        "value": "verified",
+        "label": "Mis en place et vérifié",
+        "score": 100,
+        "description": "Le contrôle est appliqué, documenté, et revu ou vérifié récemment."
+      }
+    ],
+    "scoringRules": {
+      "questionScore": "selectedAnswerScore + evidenceReferenceBonus",
+      "evidenceReferenceBonus": 5,
+      "maxQuestionScore": 100,
+      "domainScore": "average of answered question scores in the domain",
+      "globalReadinessScore": "average of all domain scores",
+      "completionScore": "answered questions / total questions",
+      "criticalGapRule": "critical controls with score < 50",
+      "weakControlRule": "controls with score < 60",
+      "importantNote": "Le score de préparation n'est pas la même chose que le taux de complétion du questionnaire."
+    },
+    "uiLabels": {
+      "answerQuestion": "Répondre à la question",
+      "implementationLevel": "Niveau de mise en place",
+      "optionalEvidence": "Note ou référence de preuve — optionnel",
+      "saveAnswer": "Enregistrer la réponse",
+      "nextQuestion": "Question suivante",
+      "previousQuestion": "Question précédente",
+      "domainProgress": "Progression du domaine",
+      "questionnaireCompletion": "Complétion du questionnaire",
+      "readinessScore": "Score de préparation",
+      "scoreExplanation": "Le score est calculé à partir du niveau de mise en place choisi pour chaque contrôle. Une référence de preuve optionnelle peut légèrement renforcer le score.",
+      "notCertification": "Ce résultat fournit une indication de préparation et d'analyse des écarts. Il ne constitue pas une certification, un audit formel ou un avis juridique."
+    },
+    "nextActionRules": [
+      {
+        "condition": "critical control score < 50",
+        "priority": "high",
+        "label": "Traiter les contrôles critiques faibles"
+      },
+      {
+        "condition": "domain score < 60",
+        "priority": "medium",
+        "label": "Améliorer le domaine le plus faible"
+      },
+      {
+        "condition": "answered questions without evidence reference > 10",
+        "priority": "medium",
+        "label": "Ajouter des références de preuves"
+      },
+      {
+        "condition": "completion score < 100",
+        "priority": "low",
+        "label": "Continuer l'évaluation"
+      }
+    ]
+  },
+  "companySectors": [
+    "saas",
+    "fintech",
+    "healthcare",
+    "ecommerce",
+    "education",
+    "telecom",
+    "professional_services",
+    "general_sme"
+  ],
+  "questionSchema": {
+    "id": "string",
+    "domainId": "D8",
+    "domainName": "People, Physical & Access Controls",
+    "controlCode": "string",
+    "question": "string",
+    "helpText": "string",
+    "expectedEvidence": [
+      "string"
+    ],
+    "severity": "low | medium | high | critical",
+    "weight": "number",
+    "appliesTo": "all | CompanySector[]",
+    "source": "assessment | agent | integration | combined"
+  },
+  "coreQuestions": [
+    {
+      "id": "D8-C01",
+      "domainId": "D8",
+      "domainName": "Contrôles humains, physiques et d’accès",
+      "controlCode": "D8-C01",
+      "question": "Les habilitations d’accès sont-elles attribuées selon le principe du besoin d’en connaître ?",
+      "helpText": "Les habilitations doivent être attribuées en fonction des rôles et des besoins métier, et non par défaut.",
+      "expectedEvidence": [
+        "Onboarding security checklist",
+        "Employment or contractor security clauses",
+        "Role change procedure",
+        "Offboarding checklist"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": "all",
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D8-C02",
+      "domainId": "D8",
+      "domainName": "Contrôles humains, physiques et d’accès",
+      "controlCode": "D8-C02",
+      "question": "Les accès sont-ils révoqués rapidement en cas de départ, mutation ou fin de contrat ?",
+      "helpText": "Une procédure de révocation des accès doit exister pour garantir qu’un départ ou une mutation n’entraîne pas de maintien d’accès non autorisé.",
+      "expectedEvidence": [
+        "User account inventory",
+        "Identity management records",
+        "Service account register",
+        "Account approval records"
+      ],
+      "severity": "critical",
+      "weight": 1.4,
+      "appliesTo": "all",
+      "source": "combined",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D8-C03",
+      "domainId": "D8",
+      "domainName": "Contrôles humains, physiques et d’accès",
+      "controlCode": "D8-C03",
+      "question": "Les accès physiques aux locaux et zones sensibles sont-ils contrôlés ?",
+      "helpText": "Le contrôle d’accès physique inclut les badges, les zones sécurisées, les visiteurs, la surveillance et les accès après les heures ouvrables.",
+      "expectedEvidence": [
+        "Access request records",
+        "Access approval workflow",
+        "Joiner-mover-leaver process",
+        "Access removal records"
+      ],
+      "severity": "critical",
+      "weight": 1.4,
+      "appliesTo": "all",
+      "source": "combined",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D8-C04",
+      "domainId": "D8",
+      "domainName": "Contrôles humains, physiques et d’accès",
+      "controlCode": "D8-C04",
+      "question": "Les postes de travail et équipements mobiles sont-ils protégés contre les accès non autorisés ?",
+      "helpText": "Les postes de travail doivent être verrouillés en cas d’absence et les équipements mobiles protégés contre la perte ou le vol.",
+      "expectedEvidence": [
+        "Privileged account register",
+        "Admin access review records",
+        "Privileged access approval records",
+        "Admin activity monitoring evidence"
+      ],
+      "severity": "critical",
+      "weight": 1.5,
+      "appliesTo": "all",
+      "source": "combined",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D8-C05",
+      "domainId": "D8",
+      "domainName": "Contrôles humains, physiques et d’accès",
+      "controlCode": "D8-C05",
+      "question": "Les utilisateurs sont-ils informés de leurs obligations en matière d’utilisation des systèmes d’information ?",
+      "helpText": "Les utilisateurs doivent connaître et respecter les règles d’utilisation des systèmes, notamment en matière de mots de passe et de confidentialité.",
+      "expectedEvidence": [
+        "MFA configuration evidence",
+        "Password policy",
+        "Authentication policy",
+        "Identity provider settings"
+      ],
+      "severity": "critical",
+      "weight": 1.5,
+      "appliesTo": "all",
+      "source": "combined",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D8-C06",
+      "domainId": "D8",
+      "domainName": "Contrôles humains, physiques et d’accès",
+      "controlCode": "D8-C06",
+      "question": "Le télétravail et l’accès à distance sont-ils encadrés par des règles de sécurité claires ?",
+      "helpText": "Le télétravail nécessite des règles spécifiques concernant l’utilisation du matériel, les connexions réseau et la protection des données.",
+      "expectedEvidence": [
+        "Physical access rules",
+        "Visitor log or access badge records",
+        "Device inventory",
+        "Clear desk or secure workspace guidance"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": "all",
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    }
+  ],
+  "sectorQuestions": [
+    {
+      "id": "D8-SAAS-01",
+      "domainId": "D8",
+      "domainName": "Contrôles humains, physiques et d’accès",
+      "controlCode": "D8-SAAS-01",
+      "question": "Les accès aux environnements de production, cloud et bases de données SaaS sont-ils contrôlés et revus ?",
+      "helpText": "SaaS environments require strict contrôle d’accès for production systems, cloud platforms, databases, secrets, and deployment pipelines.",
+      "expectedEvidence": [
+        "Production access list",
+        "Cloud IAM review",
+        "Database access review",
+        "CI/CD access approval records"
+      ],
+      "severity": "critical",
+      "weight": 1.5,
+      "appliesTo": [
+        "saas"
+      ],
+      "source": "combined",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D8-SAAS-02",
+      "domainId": "D8",
+      "domainName": "Contrôles humains, physiques et d’accès",
+      "controlCode": "D8-SAAS-02",
+      "question": "Les accès des développeurs et des équipes techniques sont-ils révoqués rapidement en cas de départ ?",
+      "helpText": "This checks whether customer data access is restricted and traceable during support, debugging, troubleshooting, or operational work.",
+      "expectedEvidence": [
+        "Customer data access rules",
+        "Support access logs",
+        "Temporary access approval records",
+        "Customer data access review"
+      ],
+      "severity": "critical",
+      "weight": 1.4,
+      "appliesTo": [
+        "saas"
+      ],
+      "source": "combined",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D8-SAAS-03",
+      "domainId": "D8",
+      "domainName": "Contrôles humains, physiques et d’accès",
+      "controlCode": "D8-SAAS-03",
+      "question": "Les sessions d’accès distant et d’administration sont-elles protégées par authentification forte ?",
+      "helpText": "This verifies whether endpoint and remote work practices support secure access to SaaS development and operations environments.",
+      "expectedEvidence": [
+        "Developer device security baseline",
+        "Remote access policy",
+        "Endpoint protection evidence",
+        "Source code access requirements"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "saas"
+      ],
+      "source": "combined",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D8-FIN-01",
+      "domainId": "D8",
+      "domainName": "Contrôles humains, physiques et d’accès",
+      "controlCode": "D8-FIN-01",
+      "question": "Les accès aux systèmes financiers et de paiement sont-ils restreints et revus régulièrement ?",
+      "helpText": "Fintech contrôle d’accès should protect money movement, financial data, transaction integrity, and fraud investigation processes.",
+      "expectedEvidence": [
+        "Payment system access review",
+        "Financial dashboard access list",
+        "Fraud tool access review",
+        "Transaction system approval records"
+      ],
+      "severity": "critical",
+      "weight": 1.5,
+      "appliesTo": [
+        "fintech"
+      ],
+      "source": "combined",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D8-FIN-02",
+      "domainId": "D8",
+      "domainName": "Contrôles humains, physiques et d’accès",
+      "controlCode": "D8-FIN-02",
+      "question": "Les anciens employés et sous-traitants financiers voient-ils leurs accès révoqués rapidement ?",
+      "helpText": "This checks whether high-risk financial actions require appropriate separation, revue, or approval to reduce fraud and misuse.",
+      "expectedEvidence": [
+        "Segregation of duties matrix",
+        "Approval workflow records",
+        "Refund or adjustment approval logs",
+        "Admin change review records"
+      ],
+      "severity": "critical",
+      "weight": 1.4,
+      "appliesTo": [
+        "fintech"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D8-FIN-03",
+      "domainId": "D8",
+      "domainName": "Contrôles humains, physiques et d’accès",
+      "controlCode": "D8-FIN-03",
+      "question": "Les postes de travail manipulant des données financières sont-ils protégés par des contrôles d’accès ?",
+      "helpText": "This verifies whether high-risk financial systems and partner portals are protected by strong authentification and restricted administrator access.",
+      "expectedEvidence": [
+        "MFA evidence for financial platforms",
+        "Provider portal admin list",
+        "Privileged access review",
+        "Authentication configuration evidence"
+      ],
+      "severity": "critical",
+      "weight": 1.5,
+      "appliesTo": [
+        "fintech"
+      ],
+      "source": "combined",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D8-HEALTH-01",
+      "domainId": "D8",
+      "domainName": "Contrôles humains, physiques et d’accès",
+      "controlCode": "D8-HEALTH-01",
+      "question": "Les accès aux dossiers patients et systèmes de santé sont-ils contrôlés et audités ?",
+      "helpText": "Healthcare access should reflect clinical, administrative, support, and IT roles so people access only what they need.",
+      "expectedEvidence": [
+        "Role-based access matrix",
+        "Patient record access review",
+        "Clinical system access list",
+        "Billing system access approval records"
+      ],
+      "severity": "critical",
+      "weight": 1.5,
+      "appliesTo": [
+        "healthcare"
+      ],
+      "source": "combined",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D8-HEALTH-02",
+      "domainId": "D8",
+      "domainName": "Contrôles humains, physiques et d’accès",
+      "controlCode": "D8-HEALTH-02",
+      "question": "Les départs du personnel médical ou administratif entraînent-ils une révocation rapide des accès ?",
+      "helpText": "This checks whether healthcare environments protect devices and work areas where patient-related information may be visible or accessible.",
+      "expectedEvidence": [
+        "Workstation locking policy",
+        "Reception device controls",
+        "Mobile device security rules",
+        "Clinical area access rules"
+      ],
+      "severity": "high",
+      "weight": 1.3,
+      "appliesTo": [
+        "healthcare"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D8-HEALTH-03",
+      "domainId": "D8",
+      "domainName": "Contrôles humains, physiques et d’accès",
+      "controlCode": "D8-HEALTH-03",
+      "question": "Les postes de travail partagés dans les zones de soins sont-ils sécurisés ?",
+      "helpText": "This verifies whether access for partners, temporary staff, laboratories, and external doctors is controlled throughout its lifecycle.",
+      "expectedEvidence": [
+        "External user access approvals",
+        "Temporary access register",
+        "Partner access review",
+        "Access removal records"
+      ],
+      "severity": "high",
+      "weight": 1.3,
+      "appliesTo": [
+        "healthcare"
+      ],
+      "source": "combined",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D8-ECOM-01",
+      "domainId": "D8",
+      "domainName": "Contrôles humains, physiques et d’accès",
+      "controlCode": "D8-ECOM-01",
+      "question": "Les accès aux systèmes de gestion des commandes et aux données clients sont-ils contrôlés ?",
+      "helpText": "E-commerce contrôle d’accès should protect customer accounts, payment-related operations, support records, orders, and store configuration.",
+      "expectedEvidence": [
+        "Store admin access review",
+        "Payment gateway access list",
+        "Support platform access review",
+        "Order management access records"
+      ],
+      "severity": "critical",
+      "weight": 1.4,
+      "appliesTo": [
+        "ecommerce"
+      ],
+      "source": "combined",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D8-ECOM-02",
+      "domainId": "D8",
+      "domainName": "Contrôles humains, physiques et d’accès",
+      "controlCode": "D8-ECOM-02",
+      "question": "Les accès des anciens employés et sous-traitants sont-ils révoqués rapidement ?",
+      "helpText": "This checks whether users have appropriate access based on role and whether sensitive actions are limited to approved roles.",
+      "expectedEvidence": [
+        "Role-based access matrix",
+        "Store administration role list",
+        "Support access rules",
+        "Fulfillment and marketing access review"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "ecommerce"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D8-ECOM-03",
+      "domainId": "D8",
+      "domainName": "Contrôles humains, physiques et d’accès",
+      "controlCode": "D8-ECOM-03",
+      "question": "Les administrateurs de la boutique et les équipes support ont-ils des accès adaptés à leurs rôles ?",
+      "helpText": "This verifies whether high-risk e-commerce accounts are protected from takeover and unauthorized administrative changes.",
+      "expectedEvidence": [
+        "MFA evidence for store admin accounts",
+        "Payment account authentication settings",
+        "Admin account review",
+        "Account protection policy"
+      ],
+      "severity": "critical",
+      "weight": 1.4,
+      "appliesTo": [
+        "ecommerce"
+      ],
+      "source": "combined",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D8-EDU-01",
+      "domainId": "D8",
+      "domainName": "Contrôles humains, physiques et d’accès",
+      "controlCode": "D8-EDU-01",
+      "question": "Les accès aux données des étudiants et aux systèmes d’apprentissage sont-ils contrôlés ?",
+      "helpText": "Education access should reflect staff, teacher, administration, IT, and external provider responsibilities.",
+      "expectedEvidence": [
+        "Education role-based access matrix",
+        "Student system access review",
+        "Exam platform access list",
+        "Admin tool access approvals"
+      ],
+      "severity": "critical",
+      "weight": 1.4,
+      "appliesTo": [
+        "education"
+      ],
+      "source": "combined",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D8-EDU-02",
+      "domainId": "D8",
+      "domainName": "Contrôles humains, physiques et d’accès",
+      "controlCode": "D8-EDU-02",
+      "question": "Les accès des anciens enseignants et personnels sont-ils révoqués rapidement ?",
+      "helpText": "This verifies whether lifecycle control exists for education accounts with different roles and access needs.",
+      "expectedEvidence": [
+        "Account lifecycle procedure",
+        "Student account provisioning records",
+        "Teacher account review",
+        "External provider access removal records"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "education"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D8-EDU-03",
+      "domainId": "D8",
+      "domainName": "Contrôles humains, physiques et d’accès",
+      "controlCode": "D8-EDU-03",
+      "question": "Les postes partagés dans les salles de classe et laboratoires sont-ils protégés ?",
+      "helpText": "This checks whether offices, exam rooms, staff devices, and storage areas are protected according to the information they handle.",
+      "expectedEvidence": [
+        "Exam room access rules",
+        "Administrative office access controls",
+        "Device security rules",
+        "Record storage controls"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "education"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D8-TEL-01",
+      "domainId": "D8",
+      "domainName": "Contrôles humains, physiques et d’accès",
+      "controlCode": "D8-TEL-01",
+      "question": "Les accès aux équipements réseau et aux consoles d’administration sont-ils contrôlés ?",
+      "helpText": "Telecom contrôle d’accès should protect infrastructure administration, supervision, and customer service continuité.",
+      "expectedEvidence": [
+        "Network admin access review",
+        "NOC tool access list",
+        "Firewall/router access records",
+        "Provisioning system access approvals"
+      ],
+      "severity": "critical",
+      "weight": 1.5,
+      "appliesTo": [
+        "telecom"
+      ],
+      "source": "combined",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D8-TEL-02",
+      "domainId": "D8",
+      "domainName": "Contrôles humains, physiques et d’accès",
+      "controlCode": "D8-TEL-02",
+      "question": "Les accès des anciens employés et sous-traitants télécom sont-ils révoqués rapidement ?",
+      "helpText": "This checks whether telecom infrastructure areas are protected against unauthorized physical access, tampering, or service disruption.",
+      "expectedEvidence": [
+        "Network room access records",
+        "Site access procedure",
+        "Cabinet or equipment access controls",
+        "Data center access logs"
+      ],
+      "severity": "critical",
+      "weight": 1.4,
+      "appliesTo": [
+        "telecom"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D8-TEL-03",
+      "domainId": "D8",
+      "domainName": "Contrôles humains, physiques et d’accès",
+      "controlCode": "D8-TEL-03",
+      "question": "Les équipes de maintenance terrain ont-elles des accès limités au strict nécessaire ?",
+      "helpText": "This verifies whether third-party and operational access to network systems and physical locations is approved, traceable, and removed when no longer needed.",
+      "expectedEvidence": [
+        "Field technician access list",
+        "External support access approval records",
+        "Provider access review",
+        "Maintenance access removal records"
+      ],
+      "severity": "critical",
+      "weight": 1.4,
+      "appliesTo": [
+        "telecom"
+      ],
+      "source": "combined",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D8-SERV-01",
+      "domainId": "D8",
+      "domainName": "Contrôles humains, physiques et d’accès",
+      "controlCode": "D8-SERV-01",
+      "question": "Les accès aux dossiers clients et espaces de travail sont-ils contrôlés ?",
+      "helpText": "Professional services firms should control access to client information, contracts, deliverables, and project collaboration spaces.",
+      "expectedEvidence": [
+        "Client workspace access review",
+        "Document repository permissions",
+        "Contract repository access list",
+        "Collaboration platform access records"
+      ],
+      "severity": "high",
+      "weight": 1.3,
+      "appliesTo": [
+        "professional_services"
+      ],
+      "source": "combined",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D8-SERV-02",
+      "domainId": "D8",
+      "domainName": "Contrôles humains, physiques et d’accès",
+      "controlCode": "D8-SERV-02",
+      "question": "Les accès des consultants et freelances sont-ils révoqués en fin de mission ?",
+      "helpText": "This verifies whether external and temporary project access is controlled throughout onboarding, assignment, and offboarding.",
+      "expectedEvidence": [
+        "Contractor access approval records",
+        "Temporary user register",
+        "Project member offboarding records",
+        "Client access removal records"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "professional_services"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D8-SERV-03",
+      "domainId": "D8",
+      "domainName": "Contrôles humains, physiques et d’accès",
+      "controlCode": "D8-SERV-03",
+      "question": "Les équipes travaillant à distance utilisent-elles des connexions sécurisées ?",
+      "helpText": "This checks whether remote work and collaboration access are protected through device security, authentification, and access rules.",
+      "expectedEvidence": [
+        "Remote work access rules",
+        "Device security requirements",
+        "MFA evidence for collaboration tools",
+        "Client access requirements"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "professional_services"
+      ],
+      "source": "combined",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D8-SME-01",
+      "domainId": "D8",
+      "domainName": "Contrôles humains, physiques et d’accès",
+      "controlCode": "D8-SME-01",
+      "question": "Les accès aux informations importantes de la PME sont-ils protégés par des mots de passe ?",
+      "helpText": "For SMEs, simple contrôle d’accès over core tools can significantly reduce account compromise and data loss risk.",
+      "expectedEvidence": [
+        "User access list",
+        "Admin account list",
+        "Cloud storage permissions",
+        "Device assignment list"
+      ],
+      "severity": "critical",
+      "weight": 1.3,
+      "appliesTo": [
+        "general_sme"
+      ],
+      "source": "combined",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D8-SME-02",
+      "domainId": "D8",
+      "domainName": "Contrôles humains, physiques et d’accès",
+      "controlCode": "D8-SME-02",
+      "question": "Les anciens employés ou prestataires perdent-ils leurs accès rapidement ?",
+      "helpText": "This checks whether the company has a practical offboarding process for accounts, devices, email, and business tools.",
+      "expectedEvidence": [
+        "Offboarding checklist",
+        "Account removal records",
+        "External IT access review",
+        "Device return records"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "general_sme"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D8-SME-03",
+      "domainId": "D8",
+      "domainName": "Contrôles humains, physiques et d’accès",
+      "controlCode": "D8-SME-03",
+      "question": "Les postes partagés ou les appareils mobiles sont-ils protégés contre les accès non autorisés ?",
+      "helpText": "This verifies whether basic authentification, device protection, and physical workspace controls are in place for a small contexte métier.",
+      "expectedEvidence": [
+        "MFA settings",
+        "Password policy",
+        "Device lock or encryption settings",
+        "Workspace access rules"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "general_sme"
+      ],
+      "source": "combined",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    }
+  ],
+  "selectionLogic": {
+    "description": "For each company, return all core questions plus the sector-specific questions matching the company's sector.",
+    "expectedQuestionCountPerCompany": 9,
+    "pseudoCode": "questions = coreQuestions + sectorQuestions.filter(q => q.appliesTo.includes(company.sector))"
+  }
+}

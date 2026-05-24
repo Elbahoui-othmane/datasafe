@@ -1,0 +1,954 @@
+{
+  "domain": {
+    "id": "D5",
+    "code": "D5",
+    "name": "Ressources, compétences et sensibilisation",
+    "shortName": "Compétences",
+    "description": "Évalue la disponibilité des ressources, les compétences des équipes, les programmes de sensibilisation et la formation continue en sécurité.",
+    "frameworkFocus": "Préparation ISO/IEC 27001",
+    "sourceNote": "Questions de préparation rédigées de manière indépendante. Ce fichier ne reproduit pas le texte normatif de la norme ISO.",
+    "defaultSource": "assessment",
+    "weight": 0.9,
+    "answerScale": [
+      {
+        "value": "not_implemented",
+        "label": "Non mis en place",
+        "score": 0,
+        "description": "Aucun processus, contrôle ou pratique claire n'est en place."
+      },
+      {
+        "value": "informal",
+        "label": "Informel",
+        "score": 25,
+        "description": "La pratique existe de manière informelle, mais elle n'est pas clairement documentée ni suivie."
+      },
+      {
+        "value": "partial",
+        "label": "Partiellement mis en place",
+        "score": 50,
+        "description": "Le contrôle existe partiellement, mais il reste incomplet, irrégulier ou limité à certains cas."
+      },
+      {
+        "value": "implemented",
+        "label": "Mis en place",
+        "score": 75,
+        "description": "Le contrôle est appliqué de manière claire et peut être expliqué."
+      },
+      {
+        "value": "verified",
+        "label": "Mis en place et vérifié",
+        "score": 100,
+        "description": "Le contrôle est appliqué, documenté, et revu ou vérifié récemment."
+      }
+    ],
+    "scoringRules": {
+      "questionScore": "selectedAnswerScore + evidenceReferenceBonus",
+      "evidenceReferenceBonus": 5,
+      "maxQuestionScore": 100,
+      "domainScore": "average of answered question scores in the domain",
+      "globalReadinessScore": "average of all domain scores",
+      "completionScore": "answered questions / total questions",
+      "criticalGapRule": "critical controls with score < 50",
+      "weakControlRule": "controls with score < 60",
+      "importantNote": "Le score de préparation n'est pas la même chose que le taux de complétion du questionnaire."
+    },
+    "uiLabels": {
+      "answerQuestion": "Répondre à la question",
+      "implementationLevel": "Niveau de mise en place",
+      "optionalEvidence": "Note ou référence de preuve — optionnel",
+      "saveAnswer": "Enregistrer la réponse",
+      "nextQuestion": "Question suivante",
+      "previousQuestion": "Question précédente",
+      "domainProgress": "Progression du domaine",
+      "questionnaireCompletion": "Complétion du questionnaire",
+      "readinessScore": "Score de préparation",
+      "scoreExplanation": "Le score est calculé à partir du niveau de mise en place choisi pour chaque contrôle. Une référence de preuve optionnelle peut légèrement renforcer le score.",
+      "notCertification": "Ce résultat fournit une indication de préparation et d'analyse des écarts. Il ne constitue pas une certification, un audit formel ou un avis juridique."
+    },
+    "nextActionRules": [
+      {
+        "condition": "critical control score < 50",
+        "priority": "high",
+        "label": "Traiter les contrôles critiques faibles"
+      },
+      {
+        "condition": "domain score < 60",
+        "priority": "medium",
+        "label": "Améliorer le domaine le plus faible"
+      },
+      {
+        "condition": "answered questions without evidence reference > 10",
+        "priority": "medium",
+        "label": "Ajouter des références de preuves"
+      },
+      {
+        "condition": "completion score < 100",
+        "priority": "low",
+        "label": "Continuer l'évaluation"
+      }
+    ]
+  },
+  "companySectors": [
+    "saas",
+    "fintech",
+    "healthcare",
+    "ecommerce",
+    "education",
+    "telecom",
+    "professional_services",
+    "general_sme"
+  ],
+  "questionSchema": {
+    "id": "string",
+    "domainId": "D5",
+    "domainName": "Resources, Competence & Awareness",
+    "controlCode": "string",
+    "question": "string",
+    "helpText": "string",
+    "expectedEvidence": [
+      "string"
+    ],
+    "severity": "low | medium | high | critical",
+    "weight": "number",
+    "appliesTo": "all | CompanySector[]",
+    "source": "assessment | agent | integration | combined"
+  },
+  "coreQuestions": [
+    {
+      "id": "D5-C01",
+      "domainId": "D5",
+      "domainName": "Ressources, compétences et sensibilisation",
+      "controlCode": "D5-C01",
+      "question": "Votre organisation a-t-elle déterminé et fourni les ressources nécessaires au SMSI ?",
+      "helpText": "Les ressources nécessaires incluent les personnes, les compétences, le budget, les outils et les infrastructures requis pour le SMSI.",
+      "expectedEvidence": [
+        "Security resource plan",
+        "Budget or tooling plan",
+        "Security roadmap with resource needs",
+        "External support or consultant agreement"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": "all",
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D5-C02",
+      "domainId": "D5",
+      "domainName": "Ressources, compétences et sensibilisation",
+      "controlCode": "D5-C02",
+      "question": "Les personnes travaillant sous le contrôle de l’organisation sont-elles compétentes en matière de sécurité de l’information ?",
+      "helpText": "La compétence repose sur la formation, l’expérience et les qualifications des personnes occupant des postes liés à la sécurité.",
+      "expectedEvidence": [
+        "Security competence matrix",
+        "Role-based competence requirements",
+        "Job descriptions with security competence",
+        "Training needs assessment"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": "all",
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D5-C03",
+      "domainId": "D5",
+      "domainName": "Ressources, compétences et sensibilisation",
+      "controlCode": "D5-C03",
+      "question": "Existe-t-il un programme de sensibilisation à la sécurité de l’information pour tout le personnel ?",
+      "helpText": "La sensibilisation vise à faire comprendre à chaque collaborateur l’importance de la sécurité et ses responsabilités individuelles.",
+      "expectedEvidence": [
+        "Security awareness training records",
+        "Training attendance list",
+        "Onboarding security training material",
+        "Phishing or awareness campaign records"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": "all",
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D5-C04",
+      "domainId": "D5",
+      "domainName": "Ressources, compétences et sensibilisation",
+      "controlCode": "D5-C04",
+      "question": "Les actions de sensibilisation et de formation sont-elles planifiées et suivies ?",
+      "helpText": "Un plan annuel de sensibilisation et de formation, suivi et mis à jour, est un indicateur de maturité.",
+      "expectedEvidence": [
+        "Policy acknowledgement records",
+        "Employee security handbook",
+        "Onboarding checklist",
+        "Role-based responsibility communication"
+      ],
+      "severity": "high",
+      "weight": 1.1,
+      "appliesTo": "all",
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D5-C05",
+      "domainId": "D5",
+      "domainName": "Ressources, compétences et sensibilisation",
+      "controlCode": "D5-C05",
+      "question": "Les employés et sous-traitants sont-ils informés de leurs responsabilités en matière de sécurité de l’information ?",
+      "helpText": "Les responsabilités en matière de sécurité doivent être communiquées clairement, notamment lors de l’embauche et régulièrement après.",
+      "expectedEvidence": [
+        "Security communication plan",
+        "Incident communication procedure",
+        "Internal security announcement records",
+        "External communication responsibility notes"
+      ],
+      "severity": "medium",
+      "weight": 1.0,
+      "appliesTo": "all",
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D5-C06",
+      "domainId": "D5",
+      "domainName": "Ressources, compétences et sensibilisation",
+      "controlCode": "D5-C06",
+      "question": "La direction soutient-elle les actions de sensibilisation et de formation par des moyens adaptés ?",
+      "helpText": "Le soutien de la direction est essentiel pour donner de la crédibilité et des moyens aux actions de sensibilisation.",
+      "expectedEvidence": [
+        "Registres de formation",
+        "Certificates or competence evidence",
+        "Security awareness logs",
+        "Communication archive"
+      ],
+      "severity": "medium",
+      "weight": 1.0,
+      "appliesTo": "all",
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    }
+  ],
+  "sectorQuestions": [
+    {
+      "id": "D5-SAAS-01",
+      "domainId": "D5",
+      "domainName": "Ressources, compétences et sensibilisation",
+      "controlCode": "D5-SAAS-01",
+      "question": "Les équipes de développement et d’exploitation SaaS reçoivent-elles une formation adaptée à la sécurité ?",
+      "helpText": "SaaS teams need sensibilisation of secure development, production access, incident reporting, secrets handling, customer data protection, and support access rules.",
+      "expectedEvidence": [
+        "Secure development training records",
+        "DevOps security training material",
+        "Support team security instructions",
+        "Customer data handling training"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "saas"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D5-SAAS-02",
+      "domainId": "D5",
+      "domainName": "Ressources, compétences et sensibilisation",
+      "controlCode": "D5-SAAS-02",
+      "question": "Les ingénieurs et techniciens SaaS ont-ils les compétences nécessaires pour gérer la sécurité au quotidien ?",
+      "helpText": "This checks whether the people building and operating the SaaS platform have the skills needed to reduce product and infrastructure security risks.",
+      "expectedEvidence": [
+        "Developer competence matrix",
+        "Secure coding training evidence",
+        "Cloud security training records",
+        "Incident escalation procedure training"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "saas"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D5-SAAS-03",
+      "domainId": "D5",
+      "domainName": "Ressources, compétences et sensibilisation",
+      "controlCode": "D5-SAAS-03",
+      "question": "Les nouveaux développeurs reçoivent-ils une sensibilisation à la sécurité dès leur arrivée ?",
+      "helpText": "Security communication should reach the teams that make changes to the product, infrastructure, and customer-facing services.",
+      "expectedEvidence": [
+        "Security notes in release planning",
+        "Incident review communication",
+        "Engineering security announcements",
+        "Security updates in sprint or roadmap notes"
+      ],
+      "severity": "medium",
+      "weight": 1.0,
+      "appliesTo": [
+        "saas"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D5-FIN-01",
+      "domainId": "D5",
+      "domainName": "Ressources, compétences et sensibilisation",
+      "controlCode": "D5-FIN-01",
+      "question": "Les employés manipulant des données financières ou de paiement sont-ils formés à la sécurité ?",
+      "helpText": "Fintech teams should understand risks related to financial data, transaction integrity, fraud exposure, account compromise, and regulatory expectations.",
+      "expectedEvidence": [
+        "Payment security training records",
+        "Fraud awareness training material",
+        "Customer onboarding security guidance",
+        "Financial data handling instructions"
+      ],
+      "severity": "critical",
+      "weight": 1.3,
+      "appliesTo": [
+        "fintech"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D5-FIN-02",
+      "domainId": "D5",
+      "domainName": "Ressources, compétences et sensibilisation",
+      "controlCode": "D5-FIN-02",
+      "question": "Les compétences en sécurité des équipes financières sont-elles évaluées et maintenues ?",
+      "helpText": "This checks whether key personnel have the skills needed to operate and protect financial workflows and supporting systems.",
+      "expectedEvidence": [
+        "Financial system competence matrix",
+        "Access control training evidence",
+        "Audit trail handling guidance",
+        "Incident escalation training records"
+      ],
+      "severity": "critical",
+      "weight": 1.3,
+      "appliesTo": [
+        "fintech"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D5-FIN-03",
+      "domainId": "D5",
+      "domainName": "Ressources, compétences et sensibilisation",
+      "controlCode": "D5-FIN-03",
+      "question": "Les employés financiers sont-ils sensibilisés aux risques de fraude et d’hameçonnage ?",
+      "helpText": "Fintech organizations need clear communication paths for events that may affect money movement, customer trust, and financial service continuité.",
+      "expectedEvidence": [
+        "Financial incident communication plan",
+        "Fraud escalation procedure",
+        "Provider issue communication records",
+        "Customer-impact event communication template"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "fintech"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D5-HEALTH-01",
+      "domainId": "D5",
+      "domainName": "Ressources, compétences et sensibilisation",
+      "controlCode": "D5-HEALTH-01",
+      "question": "Le personnel médical et administratif est-il formé à la protection des données de santé ?",
+      "helpText": "Healthcare personnel should understand patient information protection, account security, device use, confidentiality, and incident reporting.",
+      "expectedEvidence": [
+        "Healthcare security awareness records",
+        "Patient information handling training",
+        "Clinical staff security instructions",
+        "Administrative staff awareness material"
+      ],
+      "severity": "critical",
+      "weight": 1.3,
+      "appliesTo": [
+        "healthcare"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D5-HEALTH-02",
+      "domainId": "D5",
+      "domainName": "Ressources, compétences et sensibilisation",
+      "controlCode": "D5-HEALTH-02",
+      "question": "Les médecins et personnels soignants ont-ils les compétences nécessaires en sécurité des données ?",
+      "helpText": "This checks whether personnel operating sensitive healthcare systems have the competence needed to protect patient services and information.",
+      "expectedEvidence": [
+        "Clinical system competence matrix",
+        "Patient records access training",
+        "Confidentiality acknowledgement",
+        "Healthcare incident escalation training"
+      ],
+      "severity": "critical",
+      "weight": 1.3,
+      "appliesTo": [
+        "healthcare"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D5-HEALTH-03",
+      "domainId": "D5",
+      "domainName": "Ressources, compétences et sensibilisation",
+      "controlCode": "D5-HEALTH-03",
+      "question": "Le personnel est-il sensibilisé aux risques de sécurité dans le milieu médical ?",
+      "helpText": "Healthcare incidents can affect confidentiality and service continuité, so communication responsibilities and escalation paths should be clear.",
+      "expectedEvidence": [
+        "Healthcare incident communication procedure",
+        "Clinical availability escalation plan",
+        "Medical partner notification process",
+        "Patient information incident communication records"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "healthcare"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D5-ECOM-01",
+      "domainId": "D5",
+      "domainName": "Ressources, compétences et sensibilisation",
+      "controlCode": "D5-ECOM-01",
+      "question": "Les équipes e-commerce sont-elles formées à la gestion sécurisée des données clients ?",
+      "helpText": "E-commerce teams should understand customer information handling, account security, payment-related risks, fraud indicators, and safe use of store tools.",
+      "expectedEvidence": [
+        "E-commerce security awareness records",
+        "Support team security training",
+        "Store admin training material",
+        "Customer data handling instructions"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "ecommerce"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D5-ECOM-02",
+      "domainId": "D5",
+      "domainName": "Ressources, compétences et sensibilisation",
+      "controlCode": "D5-ECOM-02",
+      "question": "Les compétences en sécurité des équipes sont-elles identifiées et développées ?",
+      "helpText": "This checks whether personnel operating the e-commerce platform understand the controls needed to protect store operations and customer trust.",
+      "expectedEvidence": [
+        "Store admin competence evidence",
+        "Payment workflow training",
+        "Access management instructions",
+        "Incident escalation training"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "ecommerce"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D5-ECOM-03",
+      "domainId": "D5",
+      "domainName": "Ressources, compétences et sensibilisation",
+      "controlCode": "D5-ECOM-03",
+      "question": "Les nouveaux employés reçoivent-ils une sensibilisation à la sécurité ?",
+      "helpText": "E-commerce incidents can quickly affect customer trust, so teams need clear internal and external communication paths.",
+      "expectedEvidence": [
+        "Store incident communication plan",
+        "Customer-impact communication template",
+        "Fraud escalation procedure",
+        "Support communication playbook"
+      ],
+      "severity": "medium",
+      "weight": 1.1,
+      "appliesTo": [
+        "ecommerce"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D5-EDU-01",
+      "domainId": "D5",
+      "domainName": "Ressources, compétences et sensibilisation",
+      "controlCode": "D5-EDU-01",
+      "question": "Les enseignants et le personnel administratif sont-ils formés à la protection des données des étudiants ?",
+      "helpText": "Education staff should understand secure handling of student information, exam integrity, account security, cloud tools, and incident reporting.",
+      "expectedEvidence": [
+        "Education security awareness records",
+        "Student data handling training",
+        "Exam integrity awareness material",
+        "Learning platform security instructions"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "education"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D5-EDU-02",
+      "domainId": "D5",
+      "domainName": "Ressources, compétences et sensibilisation",
+      "controlCode": "D5-EDU-02",
+      "question": "Le personnel comprend-il les risques liés au traitement des données de mineurs ?",
+      "helpText": "This checks whether key staff have the competence needed to operate education platforms securely.",
+      "expectedEvidence": [
+        "Education system competence matrix",
+        "Exam platform access training",
+        "Learning tool admin training",
+        "Incident escalation training records"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "education"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D5-EDU-03",
+      "domainId": "D5",
+      "domainName": "Ressources, compétences et sensibilisation",
+      "controlCode": "D5-EDU-03",
+      "question": "Les enseignants sont-ils sensibilisés aux bonnes pratiques de sécurité numérique ?",
+      "helpText": "Education organizations need clear communication paths for incidents affecting students, teachers, parents, and administration.",
+      "expectedEvidence": [
+        "Student information incident communication plan",
+        "Platform downtime communication procedure",
+        "Exam issue escalation plan",
+        "Education stakeholder communication records"
+      ],
+      "severity": "medium",
+      "weight": 1.1,
+      "appliesTo": [
+        "education"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D5-TEL-01",
+      "domainId": "D5",
+      "domainName": "Ressources, compétences et sensibilisation",
+      "controlCode": "D5-TEL-01",
+      "question": "Les équipes NOC et support sont-elles formées aux procédures de sécurité ?",
+      "helpText": "Telecom and network teams should understand secure access, configuration change risks, incident escalation, physical site risks, and provider dependencies.",
+      "expectedEvidence": [
+        "NOC/SOC security awareness records",
+        "Field team security training",
+        "Maintenance team security instructions",
+        "Network operations security material"
+      ],
+      "severity": "critical",
+      "weight": 1.3,
+      "appliesTo": [
+        "telecom"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D5-TEL-02",
+      "domainId": "D5",
+      "domainName": "Ressources, compétences et sensibilisation",
+      "controlCode": "D5-TEL-02",
+      "question": "Les techniciens de maintenance et les équipes terrain sont-ils formés à la sécurité ?",
+      "helpText": "This checks whether network operations personnel have the competence needed to protect infrastructure and respond to security events.",
+      "expectedEvidence": [
+        "Network operations competence matrix",
+        "Configuration management training",
+        "Monitoring platform training",
+        "Incident response training records"
+      ],
+      "severity": "critical",
+      "weight": 1.3,
+      "appliesTo": [
+        "telecom"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D5-TEL-03",
+      "domainId": "D5",
+      "domainName": "Ressources, compétences et sensibilisation",
+      "controlCode": "D5-TEL-03",
+      "question": "Les équipes reçoivent-elles une sensibilisation régulière aux risques sécurité ?",
+      "helpText": "Telecom security communication should support fast escalation and clear coordination during operational and security incidents.",
+      "expectedEvidence": [
+        "Network incident communication plan",
+        "Outage escalation procedure",
+        "Provider issue communication records",
+        "Customer-impact event communication template"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "telecom"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D5-SERV-01",
+      "domainId": "D5",
+      "domainName": "Ressources, compétences et sensibilisation",
+      "controlCode": "D5-SERV-01",
+      "question": "Les consultants et employés sont-ils formés à la gestion sécurisée des données clients ?",
+      "helpText": "Professional services teams should understand confidentiality, secure collaboration, client file handling, remote work, and access responsibilities.",
+      "expectedEvidence": [
+        "Consultant awareness records",
+        "Contractor security onboarding",
+        "Client confidentiality training",
+        "Project workspace security instructions"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "professional_services"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D5-SERV-02",
+      "domainId": "D5",
+      "name": "Resources, Competence & Awareness",
+      "domainName": "Ressources, compétences et sensibilisation",
+      "controlCode": "D5-SERV-02",
+      "question": "Les compétences en sécurité sont-elles prises en compte dans le recrutement et la formation ?",
+      "helpText": "This checks whether people handling client work have the competence needed to protect confidential project information.",
+      "expectedEvidence": [
+        "Client file handling training",
+        "Remote work security training",
+        "Project access management instructions",
+        "Incident escalation training"
+      ],
+      "severity": "high",
+      "weight": 1.1,
+      "appliesTo": [
+        "professional_services"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D5-SERV-03",
+      "domainId": "D5",
+      "domainName": "Ressources, compétences et sensibilisation",
+      "controlCode": "D5-SERV-03",
+      "question": "Les sous-traitants et freelances sont-ils sensibilisés aux règles de sécurité applicables ?",
+      "helpText": "Professional services organizations need clear communication for issues that could affect clients, contracts, and project delivery.",
+      "expectedEvidence": [
+        "Client incident communication procedure",
+        "Project access escalation plan",
+        "Collaboration platform issue process",
+        "Client notification template"
+      ],
+      "severity": "medium",
+      "weight": 1.0,
+      "appliesTo": [
+        "professional_services"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D5-SME-01",
+      "domainId": "D5",
+      "domainName": "Ressources, compétences et sensibilisation",
+      "controlCode": "D5-SME-01",
+      "question": "Les employés de la PME reçoivent-ils une sensibilisation de base à la sécurité ?",
+      "helpText": "For SMEs, sensibilisation can start with simple and practical topics that reduce the most common security risks.",
+      "expectedEvidence": [
+        "Basic security awareness material",
+        "Employee training records",
+        "Security checklist for staff",
+        "Incident reporting instructions"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "general_sme"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D5-SME-02",
+      "domainId": "D5",
+      "domainName": "Ressources, compétences et sensibilisation",
+      "controlCode": "D5-SME-02",
+      "question": "Les responsabilités en matière de sécurité sont-elles connues de tous ?",
+      "helpText": "This checks whether the responsible person, internal or external, has the practical competence needed to support basic security readiness.",
+      "expectedEvidence": [
+        "IT/security owner competence notes",
+        "Training certificates or experience evidence",
+        "External IT provider qualification",
+        "Operational checklist"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "general_sme"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D5-SME-03",
+      "domainId": "D5",
+      "domainName": "Ressources, compétences et sensibilisation",
+      "controlCode": "D5-SME-03",
+      "question": "Existe-t-il des règles simples pour l’utilisation des outils informatiques ?",
+      "helpText": "Small companies need a clear and simple way for people to report issues quickly.",
+      "expectedEvidence": [
+        "Security issue reporting instructions",
+        "IT support contact procedure",
+        "Lost device reporting process",
+        "Suspicious email reporting guidance"
+      ],
+      "severity": "medium",
+      "weight": 1.0,
+      "appliesTo": [
+        "general_sme"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    }
+  ],
+  "selectionLogic": {
+    "description": "For each company, return all core questions plus the sector-specific questions matching the company's sector.",
+    "expectedQuestionCountPerCompany": 9,
+    "pseudoCode": "questions = coreQuestions + sectorQuestions.filter(q => q.appliesTo.includes(company.sector))"
+  }
+}

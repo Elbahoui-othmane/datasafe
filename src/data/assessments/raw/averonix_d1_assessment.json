@@ -1,0 +1,952 @@
+{
+  "domain": {
+    "id": "D1",
+    "code": "D1",
+    "name": "Contexte de l’organisation et périmètre du SMSI",
+    "shortName": "Périmètre SMSI",
+    "frameworkFocus": "Préparation ISO/IEC 27001",
+    "description": "Évalue le contexte métier, les parties intéressées, les limites du SMSI, les actifs critiques, les dépendances externes et les pratiques de revue du périmètre.",
+    "sourceNote": "Questions de préparation rédigées de manière indépendante. Ce fichier ne reproduit pas le texte normatif de la norme ISO.",
+    "weight": 1.1,
+    "answerScale": [
+      {
+        "value": "not_implemented",
+        "label": "Non mis en place",
+        "score": 0,
+        "description": "Aucun processus, contrôle ou pratique claire n'est en place."
+      },
+      {
+        "value": "informal",
+        "label": "Informel",
+        "score": 25,
+        "description": "La pratique existe de manière informelle, mais elle n'est pas clairement documentée ni suivie."
+      },
+      {
+        "value": "partial",
+        "label": "Partiellement mis en place",
+        "score": 50,
+        "description": "Le contrôle existe partiellement, mais il reste incomplet, irrégulier ou limité à certains cas."
+      },
+      {
+        "value": "implemented",
+        "label": "Mis en place",
+        "score": 75,
+        "description": "Le contrôle est appliqué de manière claire et peut être expliqué."
+      },
+      {
+        "value": "verified",
+        "label": "Mis en place et vérifié",
+        "score": 100,
+        "description": "Le contrôle est appliqué, documenté, et revu ou vérifié récemment."
+      }
+    ],
+    "scoringRules": {
+      "questionScore": "selectedAnswerScore + evidenceReferenceBonus",
+      "evidenceReferenceBonus": 5,
+      "maxQuestionScore": 100,
+      "domainScore": "average of answered question scores in the domain",
+      "globalReadinessScore": "average of all domain scores",
+      "completionScore": "answered questions / total questions",
+      "criticalGapRule": "critical controls with score < 50",
+      "weakControlRule": "controls with score < 60",
+      "importantNote": "Le score de préparation n'est pas la même chose que le taux de complétion du questionnaire."
+    },
+    "uiLabels": {
+      "answerQuestion": "Répondre à la question",
+      "implementationLevel": "Niveau de mise en place",
+      "optionalEvidence": "Note ou référence de preuve — optionnel",
+      "saveAnswer": "Enregistrer la réponse",
+      "nextQuestion": "Question suivante",
+      "previousQuestion": "Question précédente",
+      "domainProgress": "Progression du domaine",
+      "questionnaireCompletion": "Complétion du questionnaire",
+      "readinessScore": "Score de préparation",
+      "scoreExplanation": "Le score est calculé à partir du niveau de mise en place choisi pour chaque contrôle. Une référence de preuve optionnelle peut légèrement renforcer le score.",
+      "notCertification": "Ce résultat fournit une indication de préparation et d'analyse des écarts. Il ne constitue pas une certification, un audit formel ou un avis juridique."
+    },
+    "nextActionRules": [
+      {
+        "condition": "critical control score < 50",
+        "priority": "high",
+        "label": "Traiter les contrôles critiques faibles"
+      },
+      {
+        "condition": "domain score < 60",
+        "priority": "medium",
+        "label": "Améliorer le domaine le plus faible"
+      },
+      {
+        "condition": "answered questions without evidence reference > 10",
+        "priority": "medium",
+        "label": "Ajouter des références de preuves"
+      },
+      {
+        "condition": "completion score < 100",
+        "priority": "low",
+        "label": "Continuer l'évaluation"
+      }
+    ]
+  },
+  "companySectors": [
+    "saas",
+    "fintech",
+    "healthcare",
+    "ecommerce",
+    "education",
+    "telecom",
+    "professional_services",
+    "general_sme"
+  ],
+  "questionSchema": {
+    "id": "string",
+    "domainId": "D1",
+    "domainName": "Organization Context & ISMS Scope",
+    "controlCode": "string",
+    "question": "string",
+    "helpText": "string",
+    "expectedEvidence": [
+      "string"
+    ],
+    "severity": "low | medium | high | critical",
+    "weight": "number",
+    "appliesTo": "all | CompanySector[]",
+    "source": "assessment | agent | integration | combined"
+  },
+  "coreQuestions": [
+    {
+      "id": "D1-C01",
+      "domainId": "D1",
+      "domainName": "Contexte de l’organisation et périmètre du SMSI",
+      "controlCode": "D1-C01",
+      "question": "Votre organisation a-t-elle identifié les facteurs internes et externes qui influencent la sécurité de l’information ?",
+      "helpText": "Cette question vérifie si l’entreprise comprend son contexte métier, son environnement opérationnel, ses dépendances technologiques, ses pressions réglementaires, ses obligations contractuelles et ses attentes en matière de sécurité.",
+      "expectedEvidence": [
+        "Document de contexte métier",
+        "Liste des enjeux internes et externes",
+        "Notes de contexte sécurité",
+        "Notes d’atelier stratégique ou risques"
+      ],
+      "severity": "high",
+      "weight": 1.1,
+      "appliesTo": "all",
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D1-C02",
+      "domainId": "D1",
+      "domainName": "Contexte de l’organisation et périmètre du SMSI",
+      "controlCode": "D1-C02",
+      "question": "Votre organisation a-t-elle identifié les parties intéressées pertinentes pour la sécurité de l’information ?",
+      "helpText": "Les parties intéressées peuvent inclure les clients, employés, régulateurs, fournisseurs, partenaires, auditeurs, investisseurs, assureurs, fournisseurs cloud et prestataires IT externes.",
+      "expectedEvidence": [
+        "Registre des parties intéressées",
+        "Exigences de sécurité clients",
+        "Liste des obligations réglementaires et contractuelles",
+        "Liste des exigences fournisseurs et partenaires"
+      ],
+      "severity": "high",
+      "weight": 1.1,
+      "appliesTo": "all",
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D1-C03",
+      "domainId": "D1",
+      "domainName": "Contexte de l’organisation et périmètre du SMSI",
+      "controlCode": "D1-C03",
+      "question": "Votre organisation a-t-elle défini le périmètre de son système de management de la sécurité de l’information (SMSI) ?",
+      "helpText": "Le périmètre du SMSI doit décrire clairement les unités métier, systèmes, services, équipes, sites, actifs informationnels et activités inclus dans le programme de préparation sécurité.",
+      "expectedEvidence": [
+        "Document de périmètre du SMSI",
+        "Schéma du périmètre",
+        "Liste des systèmes, services et sites inclus",
+        "Liste des zones exclues avec justification"
+      ],
+      "severity": "critical",
+      "weight": 1.4,
+      "appliesTo": "all",
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D1-C04",
+      "domainId": "D1",
+      "domainName": "Contexte de l’organisation et périmètre du SMSI",
+      "controlCode": "D1-C04",
+      "question": "Le périmètre du SMSI identifie-t-il clairement les limites, interfaces et dépendances avec les tiers ou services externalisés ?",
+      "helpText": "Cette question vérifie si l’organisation comprend ce qu’elle contrôle directement et ce qui dépend de prestataires, plateformes cloud, sous-traitants, hébergeurs ou support IT externe.",
+      "expectedEvidence": [
+        "Cartographie des dépendances fournisseurs",
+        "Schéma d’architecture cloud ou hébergement",
+        "Liste des services externalisés",
+        "Notes de responsabilité partagée"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": "all",
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D1-C05",
+      "domainId": "D1",
+      "domainName": "Contexte de l’organisation et périmètre du SMSI",
+      "controlCode": "D1-C05",
+      "question": "Votre organisation a-t-elle identifié les principaux actifs informationnels compris dans le périmètre du SMSI ?",
+      "helpText": "Cela inclut les systèmes, bases de données, plateformes cloud, applications métier, code source, équipements, documents, données clients, enregistrements internes et informations opérationnelles.",
+      "expectedEvidence": [
+        "Inventaire des actifs informationnels",
+        "Inventaire des systèmes et applications",
+        "Liste des responsables de données",
+        "Liste des informations métier critiques"
+      ],
+      "severity": "critical",
+      "weight": 1.4,
+      "appliesTo": "all",
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D1-C06",
+      "domainId": "D1",
+      "domainName": "Contexte de l’organisation et périmètre du SMSI",
+      "controlCode": "D1-C06",
+      "question": "Le périmètre du SMSI est-il revu lors de changements organisationnels, techniques, fournisseurs ou métiers importants ?",
+      "helpText": "Le périmètre du SMSI doit être revu lorsque l’entreprise lance de nouveaux services, change de plateforme cloud, ajoute des fournisseurs, étend ses sites, modifie ses équipes ou son modèle économique.",
+      "expectedEvidence": [
+        "Historique des revues du périmètre",
+        "Notes de gestion des changements",
+        "Document de périmètre SMSI mis à jour",
+        "Registres de revue de direction"
+      ],
+      "severity": "medium",
+      "weight": 1.0,
+      "appliesTo": "all",
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    }
+  ],
+  "sectorQuestions": [
+    {
+      "id": "D1-SAAS-01",
+      "domainId": "D1",
+      "domainName": "Contexte de l’organisation et périmètre du SMSI",
+      "controlCode": "D1-SAAS-01",
+      "question": "Les applications SaaS, l’environnement de production, les flux de données clients et l’infrastructure de support sont-ils inclus dans le périmètre du SMSI ?",
+      "helpText": "For SaaS companies, the application, production cloud environment, customer data flows, and infrastructure services are usually central to the périmètre du SMSI.",
+      "expectedEvidence": [
+        "Schéma d’architecture SaaS",
+        "Inventaire de l’environnement de production",
+        "Schéma des flux de données clients",
+        "Inventaire de l’infrastructure cloud"
+      ],
+      "severity": "critical",
+      "weight": 1.3,
+      "appliesTo": [
+        "saas"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D1-SAAS-02",
+      "domainId": "D1",
+      "domainName": "Contexte de l’organisation et périmètre du SMSI",
+      "controlCode": "D1-SAAS-02",
+      "question": "Le périmètre du SMSI sépare-t-il clairement les environnements de développement, de recette et de production ?",
+      "helpText": "This checks whether the company understands the boundaries between development, staging, production, CI/CD, source code, and customer-facing systems.",
+      "expectedEvidence": [
+        "Schéma de séparation des environnements",
+        "Liste des dépôts et pipelines CI/CD",
+        "Matrice d’accès dev, staging et production",
+        "Notes du processus de déploiement production"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "saas"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D1-SAAS-03",
+      "domainId": "D1",
+      "domainName": "Contexte de l’organisation et périmètre du SMSI",
+      "controlCode": "D1-SAAS-03",
+      "question": "Tous les services accessibles aux clients, API, tableaux de bord, panneaux d’administration et outils de support sont-ils inclus dans le périmètre du SMSI ?",
+      "helpText": "Customer-facing and administrative interfaces should be clearly identified because they often create important security exposure and access risks.",
+      "expectedEvidence": [
+        "Inventaire des services publics",
+        "Documentation des API",
+        "Liste des accès aux panneaux d’administration",
+        "Inventaire des outils de support"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "saas"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D1-FIN-01",
+      "domainId": "D1",
+      "domainName": "Contexte de l’organisation et périmètre du SMSI",
+      "controlCode": "D1-FIN-01",
+      "question": "Les activités de paiement, de transaction, d’intégration, de prévention de la fraude et de traitement des données financières sont-elles incluses dans le périmètre du SMSI ?",
+      "helpText": "Financial services depend on critical workflows that should be clearly included in the security readiness scope.",
+      "expectedEvidence": [
+        "Schéma des flux de paiement",
+        "Cartographie du traitement des transactions",
+        "Cartographie du processus d’onboarding client",
+        "Inventaire des systèmes financiers critiques"
+      ],
+      "severity": "critical",
+      "weight": 1.4,
+      "appliesTo": [
+        "fintech"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D1-FIN-02",
+      "domainId": "D1",
+      "domainName": "Contexte de l’organisation et périmètre du SMSI",
+      "controlCode": "D1-FIN-02",
+      "question": "Les exigences bancaires, réglementaires et contractuelles en matière de sécurité sont-elles identifiées dans le périmètre du SMSI ?",
+      "helpText": "Fintech companies often have external security expectations from payment providers, banking partners, regulators, investors, and customers.",
+      "expectedEvidence": [
+        "Regulatory obligations register",
+        "Banking partner security requirements",
+        "Payment provider requirements",
+        "Contractual security clauses"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "fintech"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D1-FIN-03",
+      "domainId": "D1",
+      "domainName": "Contexte de l’organisation et périmètre du SMSI",
+      "controlCode": "D1-FIN-03",
+      "question": "Les prestataires de paiement, API bancaires, fournisseurs KYC, outils anti-fraude et partenaires financiers tiers sont-ils inclus dans le périmètre du SMSI ?",
+      "helpText": "This checks whether critical financial third-party dependencies are visible in the périmètre du SMSI and dependency map.",
+      "expectedEvidence": [
+        "Third-party dependency map",
+        "Payment provider list",
+        "KYC provider documentation",
+        "Banking API provider list"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "fintech"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D1-HEALTH-01",
+      "domainId": "D1",
+      "domainName": "Contexte de l’organisation et périmètre du SMSI",
+      "controlCode": "D1-HEALTH-01",
+      "question": "Les systèmes de gestion des patients, dossiers médicaux, systèmes de rendez-vous et de facturation sont-ils inclus dans le périmètre du SMSI ?",
+      "helpText": "Healthcare organizations rely on sensitive and operationally critical systems that should be clearly represented in the security scope.",
+      "expectedEvidence": [
+        "Clinical system inventory",
+        "Patient information system list",
+        "Medical records system documentation",
+        "Billing and appointment system inventory"
+      ],
+      "severity": "critical",
+      "weight": 1.4,
+      "appliesTo": [
+        "healthcare"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D1-HEALTH-02",
+      "domainId": "D1",
+      "domainName": "Contexte de l’organisation et périmètre du SMSI",
+      "controlCode": "D1-HEALTH-02",
+      "question": "Le périmètre du SMSI identifie-t-il les zones où des données de santé sensibles sont stockées, traitées ou transférées ?",
+      "helpText": "This checks whether the organization understands the boundaries and flows of sensitive health information across systems, people, and partners.",
+      "expectedEvidence": [
+        "Health information map",
+        "Storage location list",
+        "Access matrix",
+        "Data sharing process documentation"
+      ],
+      "severity": "critical",
+      "weight": 1.4,
+      "appliesTo": [
+        "healthcare"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D1-HEALTH-03",
+      "domainId": "D1",
+      "domainName": "Contexte de l’organisation et périmètre du SMSI",
+      "controlCode": "D1-HEALTH-03",
+      "question": "Les laboratoires, pharmacies, assureurs et partenaires médicaux externes sont-ils inclus dans le périmètre du SMSI ?",
+      "helpText": "External medical partners can create sécurité de l’information dependencies that should be visible in the périmètre du SMSI.",
+      "expectedEvidence": [
+        "Medical partner list",
+        "Data exchange agreements",
+        "Referral process documentation",
+        "External service provider list"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "healthcare"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D1-ECOM-01",
+      "domainId": "D1",
+      "domainName": "Contexte de l’organisation et périmètre du SMSI",
+      "controlCode": "D1-ECOM-01",
+      "question": "La boutique en ligne, les flux de paiement, le système de gestion des commandes et les données clients sont-ils inclus dans le périmètre du SMSI ?",
+      "helpText": "E-commerce security scope should cover the systems and workflows that support sales, payments, customer accounts, and operations.",
+      "expectedEvidence": [
+        "E-commerce architecture diagram",
+        "Payment process map",
+        "Order management system list",
+        "Customer support tool inventory"
+      ],
+      "severity": "critical",
+      "weight": 1.3,
+      "appliesTo": [
+        "ecommerce"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D1-ECOM-02",
+      "domainId": "D1",
+      "domainName": "Contexte de l’organisation et périmètre du SMSI",
+      "controlCode": "D1-ECOM-02",
+      "question": "Le périmètre du SMSI inclut-il les comptes clients, l’historique des commandes, les informations de livraison et les préférences marketing ?",
+      "helpText": "This checks whether the organization understands the key information handled across the e-commerce lifecycle.",
+      "expectedEvidence": [
+        "Schéma des flux de données clients",
+        "Order data inventory",
+        "Support platform list",
+        "Shipping provider integration list"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "ecommerce"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D1-ECOM-03",
+      "domainId": "D1",
+      "domainName": "Contexte de l’organisation et périmètre du SMSI",
+      "controlCode": "D1-ECOM-03",
+      "question": "Les plateformes marketplace, passerelles de paiement et prestataires de livraison sont-ils inclus dans le périmètre du SMSI ?",
+      "helpText": "This checks whether third-party platforms that support the online store are visible in the scope and dependency map.",
+      "expectedEvidence": [
+        "Marketplace integration list",
+        "Payment gateway list",
+        "Delivery provider list",
+        "Marketing and analytics tool inventory"
+      ],
+      "severity": "high",
+      "weight": 1.1,
+      "appliesTo": [
+        "ecommerce"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D1-EDU-01",
+      "domainId": "D1",
+      "domainName": "Contexte de l’organisation et périmètre du SMSI",
+      "controlCode": "D1-EDU-01",
+      "question": "Les dossiers étudiants, plateformes d’apprentissage, systèmes de présence, systèmes d’examen et de certification sont-ils inclus dans le périmètre du SMSI ?",
+      "helpText": "Education organizations should clearly identify the platforms and records that support learning, administration, exams, and communication.",
+      "expectedEvidence": [
+        "Student system inventory",
+        "Learning management system documentation",
+        "Exam platform list",
+        "Attendance system documentation"
+      ],
+      "severity": "critical",
+      "weight": 1.3,
+      "appliesTo": [
+        "education"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D1-EDU-02",
+      "domainId": "D1",
+      "domainName": "Contexte de l’organisation et périmètre du SMSI",
+      "controlCode": "D1-EDU-02",
+      "question": "Le périmètre du SMSI inclut-il les données des étudiants, enseignants, personnel, examens, certificats et apprentissage à distance ?",
+      "helpText": "This checks whether the organization has visibility over the main categories of information it needs to protect.",
+      "expectedEvidence": [
+        "Education data inventory",
+        "Student information flow",
+        "Staff access matrix",
+        "Certificate and exam process documentation"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "education"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D1-EDU-03",
+      "domainId": "D1",
+      "domainName": "Contexte de l’organisation et périmètre du SMSI",
+      "controlCode": "D1-EDU-03",
+      "question": "Les plateformes d’apprentissage externes, le stockage cloud et les outils de visioconférence sont-ils inclus dans le périmètre du SMSI ?",
+      "helpText": "This checks whether external platforms used for learning and administration are included in the dependency view.",
+      "expectedEvidence": [
+        "External learning platform list",
+        "Cloud storage usage list",
+        "Video meeting tool list",
+        "Provider agreements or service list"
+      ],
+      "severity": "medium",
+      "weight": 1.1,
+      "appliesTo": [
+        "education"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D1-TEL-01",
+      "domainId": "D1",
+      "domainName": "Contexte de l’organisation et périmètre du SMSI",
+      "controlCode": "D1-TEL-01",
+      "question": "Les systèmes réseau principaux, les systèmes de connectivité clients, les plateformes de supervision et l’infrastructure télécom sont-ils inclus dans le périmètre du SMSI ?",
+      "helpText": "Telecom and network operators should clearly define whether network infrastructure and operational platforms are within the security management scope.",
+      "expectedEvidence": [
+        "Network architecture diagram",
+        "Infrastructure inventory",
+        "Monitoring system list",
+        "Firewall, router, and switch inventory"
+      ],
+      "severity": "critical",
+      "weight": 1.4,
+      "appliesTo": [
+        "telecom"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D1-TEL-02",
+      "domainId": "D1",
+      "domainName": "Contexte de l’organisation et périmètre du SMSI",
+      "controlCode": "D1-TEL-02",
+      "question": "Le périmètre du SMSI inclut-il les systèmes de provisionnement, de support, de gestion des incidents et d’administration réseau ?",
+      "helpText": "Operational processes should be included when they affect the confidentiality, integrity, or availability of customer or network services.",
+      "expectedEvidence": [
+        "NOC or operations process documentation",
+        "Customer provisioning workflow",
+        "Incident handling process",
+        "Support platform inventory"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "telecom"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D1-TEL-03",
+      "domainId": "D1",
+      "domainName": "Contexte de l’organisation et périmètre du SMSI",
+      "controlCode": "D1-TEL-03",
+      "question": "Les fournisseurs amont, centres de données, plateformes cloud et opérateurs partenaires sont-ils inclus dans le périmètre du SMSI ?",
+      "helpText": "Telecom and network operations often depend on critical external providers that should be visible in the ISMS dependency map.",
+      "expectedEvidence": [
+        "Upstream provider list",
+        "Data center contracts",
+        "External maintenance provider list",
+        "Critical dependency map"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "telecom"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D1-SERV-01",
+      "domainId": "D1",
+      "domainName": "Contexte de l’organisation et périmètre du SMSI",
+      "controlCode": "D1-SERV-01",
+      "question": "Les dossiers clients, espaces de projet, plateformes de communication, contrats et documents livrables sont-ils inclus dans le périmètre du SMSI ?",
+      "helpText": "Professional services firms often handle client information across projects, documents, communication tools, and deliverables.",
+      "expectedEvidence": [
+        "Client project inventory",
+        "Document storage list",
+        "Collaboration tool list",
+        "Contract repository list"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "professional_services"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D1-SERV-02",
+      "domainId": "D1",
+      "domainName": "Contexte de l’organisation et périmètre du SMSI",
+      "controlCode": "D1-SERV-02",
+      "question": "Le périmètre du SMSI inclut-il les consultants, freelances, sous-traitants et partenaires externes de services professionnels ?",
+      "helpText": "This checks whether non-permanent personnel with access to client information are included in the security scope.",
+      "expectedEvidence": [
+        "User access list",
+        "Contractor register",
+        "NDA or confidentiality records",
+        "Offboarding records"
+      ],
+      "severity": "high",
+      "weight": 1.1,
+      "appliesTo": [
+        "professional_services"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D1-SERV-03",
+      "domainId": "D1",
+      "domainName": "Contexte de l’organisation et périmètre du SMSI",
+      "controlCode": "D1-SERV-03",
+      "question": "Les exigences de confidentialité clients et les obligations de sécurité contractuelles sont-elles incluses dans le périmètre du SMSI ?",
+      "helpText": "This checks whether the company understands the security expectations created by client contracts and project obligations.",
+      "expectedEvidence": [
+        "Client security requirements",
+        "NDA templates",
+        "Contractual security clauses",
+        "Project risk notes"
+      ],
+      "severity": "medium",
+      "weight": 1.1,
+      "appliesTo": [
+        "professional_services"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D1-SME-01",
+      "domainId": "D1",
+      "domainName": "Contexte de l’organisation et périmètre du SMSI",
+      "controlCode": "D1-SME-01",
+      "question": "Les systèmes et informations que vous utilisez pour gérer votre activité sont-ils inclus dans le périmètre de votre SMSI ?",
+      "helpText": "For general SMEs, the first step is to identify the systems, information, tools, and processes that are essential to keep the business running.",
+      "expectedEvidence": [
+        "Critical system list",
+        "Business process list",
+        "Main software and tool inventory",
+        "Key information asset list"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "general_sme"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D1-SME-02",
+      "domainId": "D1",
+      "domainName": "Contexte de l’organisation et périmètre du SMSI",
+      "controlCode": "D1-SME-02",
+      "question": "Savez-vous qui est responsable de la sécurité de l’information dans votre organisation ?",
+      "helpText": "This checks whether security responsibility is assigned internally or through an external provider.",
+      "expectedEvidence": [
+        "Responsibility matrix",
+        "IT owner assignment",
+        "External IT provider agreement",
+        "Internal role description"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "general_sme"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D1-SME-03",
+      "domainId": "D1",
+      "domainName": "Contexte de l’organisation et périmètre du SMSI",
+      "controlCode": "D1-SME-03",
+      "question": "Si vous utilisez un prestataire IT externe, ses services sont-ils inclus dans le périmètre de votre SMSI ?",
+      "helpText": "External IT providers often manage access, sauvegardes, devices, email, or networks, so they should be included as a dependency when relevant.",
+      "expectedEvidence": [
+        "IT provider contract",
+        "Support agreement",
+        "Provider access permissions list",
+        "Service scope document"
+      ],
+      "severity": "medium",
+      "weight": 1.0,
+      "appliesTo": [
+        "general_sme"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    }
+  ],
+  "selectionLogic": {
+    "description": "For each company, return all core questions plus the sector-specific questions matching the company's sector.",
+    "expectedQuestionCountPerCompany": 9,
+    "pseudoCode": "questions = coreQuestions + sectorQuestions.filter(q => q.appliesTo.includes(company.sector))"
+  }
+}

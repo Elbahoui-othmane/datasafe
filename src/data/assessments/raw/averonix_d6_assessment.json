@@ -1,0 +1,953 @@
+{
+  "domain": {
+    "id": "D6",
+    "code": "D6",
+    "name": "Informations documentées et maîtrise opérationnelle",
+    "shortName": "Documents",
+    "description": "Vérifie la gestion des documents, les procédures opérationnelles, les contrôles des processus et la traçabilité des activités.",
+    "frameworkFocus": "Préparation ISO/IEC 27001",
+    "sourceNote": "Questions de préparation rédigées de manière indépendante. Ce fichier ne reproduit pas le texte normatif de la norme ISO.",
+    "defaultSource": "assessment",
+    "weight": 1.1,
+    "answerScale": [
+      {
+        "value": "not_implemented",
+        "label": "Non mis en place",
+        "score": 0,
+        "description": "Aucun processus, contrôle ou pratique claire n'est en place."
+      },
+      {
+        "value": "informal",
+        "label": "Informel",
+        "score": 25,
+        "description": "La pratique existe de manière informelle, mais elle n'est pas clairement documentée ni suivie."
+      },
+      {
+        "value": "partial",
+        "label": "Partiellement mis en place",
+        "score": 50,
+        "description": "Le contrôle existe partiellement, mais il reste incomplet, irrégulier ou limité à certains cas."
+      },
+      {
+        "value": "implemented",
+        "label": "Mis en place",
+        "score": 75,
+        "description": "Le contrôle est appliqué de manière claire et peut être expliqué."
+      },
+      {
+        "value": "verified",
+        "label": "Mis en place et vérifié",
+        "score": 100,
+        "description": "Le contrôle est appliqué, documenté, et revu ou vérifié récemment."
+      }
+    ],
+    "scoringRules": {
+      "questionScore": "selectedAnswerScore + evidenceReferenceBonus",
+      "evidenceReferenceBonus": 5,
+      "maxQuestionScore": 100,
+      "domainScore": "average of answered question scores in the domain",
+      "globalReadinessScore": "average of all domain scores",
+      "completionScore": "answered questions / total questions",
+      "criticalGapRule": "critical controls with score < 50",
+      "weakControlRule": "controls with score < 60",
+      "importantNote": "Le score de préparation n'est pas la même chose que le taux de complétion du questionnaire."
+    },
+    "uiLabels": {
+      "answerQuestion": "Répondre à la question",
+      "implementationLevel": "Niveau de mise en place",
+      "optionalEvidence": "Note ou référence de preuve — optionnel",
+      "saveAnswer": "Enregistrer la réponse",
+      "nextQuestion": "Question suivante",
+      "previousQuestion": "Question précédente",
+      "domainProgress": "Progression du domaine",
+      "questionnaireCompletion": "Complétion du questionnaire",
+      "readinessScore": "Score de préparation",
+      "scoreExplanation": "Le score est calculé à partir du niveau de mise en place choisi pour chaque contrôle. Une référence de preuve optionnelle peut légèrement renforcer le score.",
+      "notCertification": "Ce résultat fournit une indication de préparation et d'analyse des écarts. Il ne constitue pas une certification, un audit formel ou un avis juridique."
+    },
+    "nextActionRules": [
+      {
+        "condition": "critical control score < 50",
+        "priority": "high",
+        "label": "Traiter les contrôles critiques faibles"
+      },
+      {
+        "condition": "domain score < 60",
+        "priority": "medium",
+        "label": "Améliorer le domaine le plus faible"
+      },
+      {
+        "condition": "answered questions without evidence reference > 10",
+        "priority": "medium",
+        "label": "Ajouter des références de preuves"
+      },
+      {
+        "condition": "completion score < 100",
+        "priority": "low",
+        "label": "Continuer l'évaluation"
+      }
+    ]
+  },
+  "companySectors": [
+    "saas",
+    "fintech",
+    "healthcare",
+    "ecommerce",
+    "education",
+    "telecom",
+    "professional_services",
+    "general_sme"
+  ],
+  "questionSchema": {
+    "id": "string",
+    "domainId": "D6",
+    "domainName": "Documented Information & Operational Control",
+    "controlCode": "string",
+    "question": "string",
+    "helpText": "string",
+    "expectedEvidence": [
+      "string"
+    ],
+    "severity": "low | medium | high | critical",
+    "weight": "number",
+    "appliesTo": "all | CompanySector[]",
+    "source": "assessment | agent | integration | combined"
+  },
+  "coreQuestions": [
+    {
+      "id": "D6-C01",
+      "domainId": "D6",
+      "domainName": "Informations documentées et maîtrise opérationnelle",
+      "controlCode": "D6-C01",
+      "question": "Votre organisation maîtrise-t-elle les documents et informations nécessaires au SMSI ?",
+      "helpText": "La maîtrise des informations documentées inclut la création, la mise à jour, le contrôle des versions, la diffusion et l’archivage.",
+      "expectedEvidence": [
+        "Documented information register",
+        "Policy and procedure inventory",
+        "Evidence library index",
+        "ISMS documentation list"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": "all",
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D6-C02",
+      "domainId": "D6",
+      "domainName": "Informations documentées et maîtrise opérationnelle",
+      "controlCode": "D6-C02",
+      "question": "Les documents du SMSI sont-ils identifiés, approuvés et tenus à jour ?",
+      "helpText": "Les documents doivent être identifiés de manière unique, approuvés par les autorités compétentes et accessibles aux personnes concernées.",
+      "expectedEvidence": [
+        "Document control procedure",
+        "Document approval records",
+        "Version history",
+        "Review and approval workflow"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": "all",
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D6-C03",
+      "domainId": "D6",
+      "domainName": "Informations documentées et maîtrise opérationnelle",
+      "controlCode": "D6-C03",
+      "question": "Les processus opérationnels nécessaires à la sécurité de l’information sont-ils planifiés et maîtrisés ?",
+      "helpText": "Les processus opérationnels liés à la sécurité doivent être définis, documentés et appliqués de manière cohérente.",
+      "expectedEvidence": [
+        "Document access control list",
+        "Document repository permissions",
+        "Backup or retention settings",
+        "Change history or audit trail"
+      ],
+      "severity": "critical",
+      "weight": 1.4,
+      "appliesTo": "all",
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D6-C04",
+      "domainId": "D6",
+      "domainName": "Informations documentées et maîtrise opérationnelle",
+      "controlCode": "D6-C04",
+      "question": "Les modifications des processus ou systèmes impactant la sécurité sont-elles contrôlées ?",
+      "helpText": "Le contrôle des modifications garantit que les changements n’introduisent pas de risques non maîtrisés.",
+      "expectedEvidence": [
+        "Operational security procedure",
+        "Security operations checklist",
+        "Access review procedure",
+        "Backup, vulnerability, or incident process records"
+      ],
+      "severity": "critical",
+      "weight": 1.4,
+      "appliesTo": "all",
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D6-C05",
+      "domainId": "D6",
+      "domainName": "Informations documentées et maîtrise opérationnelle",
+      "controlCode": "D6-C05",
+      "question": "Les critères d’acceptation des livrables ou changements sécurité sont-ils définis ?",
+      "helpText": "Les critères d’acceptation définissent ce qui est considéré comme acceptable avant la mise en production ou la livraison.",
+      "expectedEvidence": [
+        "Change management procedure",
+        "Change approval records",
+        "Security impact assessments",
+        "Change implementation logs"
+      ],
+      "severity": "high",
+      "weight": 1.3,
+      "appliesTo": "all",
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D6-C06",
+      "domainId": "D6",
+      "domainName": "Informations documentées et maîtrise opérationnelle",
+      "controlCode": "D6-C06",
+      "question": "Les résultats des processus opérationnels sécurité sont-ils documentés et tracés ?",
+      "helpText": "La documentation des résultats permet de démontrer l’efficacité des processus et de faciliter les audits.",
+      "expectedEvidence": [
+        "External service inventory",
+        "Supplier monitoring records",
+        "Service review notes",
+        "Outsourced process control evidence"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": "all",
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    }
+  ],
+  "sectorQuestions": [
+    {
+      "id": "D6-SAAS-01",
+      "domainId": "D6",
+      "domainName": "Informations documentées et maîtrise opérationnelle",
+      "controlCode": "D6-SAAS-01",
+      "question": "Les procédures opérationnelles de l’environnement SaaS sont-elles documentées et accessibles aux équipes ?",
+      "helpText": "SaaS operations should be supported by clear procedures for production access, releases, incidents, and changes that may affect customers.",
+      "expectedEvidence": [
+        "Production access procedure",
+        "Deployment runbook",
+        "SaaS incident response playbook",
+        "Customer-impacting change procedure"
+      ],
+      "severity": "critical",
+      "weight": 1.3,
+      "appliesTo": [
+        "saas"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D6-SAAS-02",
+      "domainId": "D6",
+      "domainName": "Informations documentées et maîtrise opérationnelle",
+      "controlCode": "D6-SAAS-02",
+      "question": "Les changements dans l’environnement SaaS sont-ils tracés et approuvés avant déploiement ?",
+      "helpText": "This checks whether the organization keeps preuve that production changes are planned, traceable, and reversible when needed.",
+      "expectedEvidence": [
+        "Release notes",
+        "Deployment approval records",
+        "Rollback plan",
+        "Production change log"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "saas"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D6-SAAS-03",
+      "domainId": "D6",
+      "domainName": "Informations documentées et maîtrise opérationnelle",
+      "controlCode": "D6-SAAS-03",
+      "question": "Les communications avec les clients sur les incidents sont-elles intégrées dans les procédures documentées ?",
+      "helpText": "This verifies whether the SaaS team maintains operational documentation for the services customers rely on.",
+      "expectedEvidence": [
+        "Service dependency map",
+        "Uptime or availability procedure",
+        "Support escalation path",
+        "Service review records"
+      ],
+      "severity": "high",
+      "weight": 1.1,
+      "appliesTo": [
+        "saas"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D6-FIN-01",
+      "domainId": "D6",
+      "domainName": "Informations documentées et maîtrise opérationnelle",
+      "controlCode": "D6-FIN-01",
+      "question": "Les procédures financières et de traitement des paiements sont-elles documentées et mises à jour ?",
+      "helpText": "Fintech operations need documented procedures for sensitive financial workflows and changes that affect transaction integrity or customer trust.",
+      "expectedEvidence": [
+        "Payment operation procedure",
+        "Transaction handling runbook",
+        "Fraud escalation process",
+        "Financial system change records"
+      ],
+      "severity": "critical",
+      "weight": 1.4,
+      "appliesTo": [
+        "fintech"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D6-FIN-02",
+      "domainId": "D6",
+      "domainName": "Informations documentées et maîtrise opérationnelle",
+      "controlCode": "D6-FIN-02",
+      "question": "Les modifications des systèmes financiers sont-elles contrôlées et tracées ?",
+      "helpText": "This checks whether important financial operational preuve is retained and protected against loss, tampering, or unauthorized access.",
+      "expectedEvidence": [
+        "Audit trail retention settings",
+        "Registres d’approbation",
+        "Exception handling logs",
+        "Financial record protection procedure"
+      ],
+      "severity": "critical",
+      "weight": 1.4,
+      "appliesTo": [
+        "fintech"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D6-FIN-03",
+      "domainId": "D6",
+      "domainName": "Informations documentées et maîtrise opérationnelle",
+      "controlCode": "D6-FIN-03",
+      "question": "Les enregistrements liés aux transactions sont-ils conservés conformément aux obligations réglementaires ?",
+      "helpText": "This verifies whether the organization controls and monitors external services that support financial operations.",
+      "expectedEvidence": [
+        "Financial dependency register",
+        "Payment provider review records",
+        "KYC provider operational review",
+        "Financial API dependency documentation"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "fintech"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D6-HEALTH-01",
+      "domainId": "D6",
+      "domainName": "Informations documentées et maîtrise opérationnelle",
+      "controlCode": "D6-HEALTH-01",
+      "question": "Les procédures de traitement des données de santé sont-elles documentées ?",
+      "helpText": "Healthcare operations should be documented to support confidentiality, availability, continuité, and safe handling of patient-related systems.",
+      "expectedEvidence": [
+        "Clinical system procedure",
+        "Patient record access procedure",
+        "Appointment system operation notes",
+        "Healthcare incident handling playbook"
+      ],
+      "severity": "critical",
+      "weight": 1.4,
+      "appliesTo": [
+        "healthcare"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D6-HEALTH-02",
+      "domainId": "D6",
+      "domainName": "Informations documentées et maîtrise opérationnelle",
+      "controlCode": "D6-HEALTH-02",
+      "question": "Les modifications des systèmes cliniques suivent-elles un processus documenté ?",
+      "helpText": "This checks whether healthcare operational preuve is protected and available when needed for revue or investigation.",
+      "expectedEvidence": [
+        "Patient record access logs",
+        "Clinical system change records",
+        "Incident handling records",
+        "Record retention procedure"
+      ],
+      "severity": "critical",
+      "weight": 1.4,
+      "appliesTo": [
+        "healthcare"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D6-HEALTH-03",
+      "domainId": "D6",
+      "domainName": "Informations documentées et maîtrise opérationnelle",
+      "controlCode": "D6-HEALTH-03",
+      "question": "Les accès aux dossiers patients sont-ils tracés et vérifiables ?",
+      "helpText": "This verifies whether medical partner dependencies are visible and revueed as part of operational security.",
+      "expectedEvidence": [
+        "Medical partner dependency register",
+        "Laboratory or pharmacy service records",
+        "Partner review notes",
+        "External healthcare service agreement"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "healthcare"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D6-ECOM-01",
+      "domainId": "D6",
+      "domainName": "Informations documentées et maîtrise opérationnelle",
+      "controlCode": "D6-ECOM-01",
+      "question": "Les procédures de traitement des commandes et des paiements sont-elles documentées ?",
+      "helpText": "E-commerce operations should be documented to protect customer trust, payment-related workflows, and order processing.",
+      "expectedEvidence": [
+        "Online store operation procedure",
+        "Checkout flow documentation",
+        "Order handling procedure",
+        "Refund and support process records"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "ecommerce"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D6-ECOM-02",
+      "domainId": "D6",
+      "domainName": "Informations documentées et maîtrise opérationnelle",
+      "controlCode": "D6-ECOM-02",
+      "question": "Les changements apportés au site e-commerce sont-ils documentés et approuvés ?",
+      "helpText": "This checks whether e-commerce operational records are protected from unauthorized access, loss, or improper modification.",
+      "expectedEvidence": [
+        "Customer account record controls",
+        "Order record retention settings",
+        "Payment-related record protection notes",
+        "Support ticket retention policy"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "ecommerce"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D6-ECOM-03",
+      "domainId": "D6",
+      "domainName": "Informations documentées et maîtrise opérationnelle",
+      "controlCode": "D6-ECOM-03",
+      "question": "Les informations sur les transactions sont-elles conservées de manière sécurisée ?",
+      "helpText": "This verifies whether external e-commerce services are visible and managed as part of operational security.",
+      "expectedEvidence": [
+        "E-commerce dependency register",
+        "Payment gateway review notes",
+        "Delivery provider documentation",
+        "Marketing and analytics platform inventory"
+      ],
+      "severity": "medium",
+      "weight": 1.1,
+      "appliesTo": [
+        "ecommerce"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D6-EDU-01",
+      "domainId": "D6",
+      "domainName": "Informations documentées et maîtrise opérationnelle",
+      "controlCode": "D6-EDU-01",
+      "question": "Les procédures de gestion des dossiers étudiants sont-elles documentées ?",
+      "helpText": "Education operations should be documented to protect student information, exam integrity, and learning continuité.",
+      "expectedEvidence": [
+        "Student records procedure",
+        "Learning platform operation notes",
+        "Exam system procedure",
+        "Attendance or administrative system procedure"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "education"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D6-EDU-02",
+      "domainId": "D6",
+      "domainName": "Informations documentées et maîtrise opérationnelle",
+      "controlCode": "D6-EDU-02",
+      "question": "Les modifications des plateformes d’apprentissage sont-elles tracées ?",
+      "helpText": "This checks whether education records are controlled, protected, and available when needed.",
+      "expectedEvidence": [
+        "Student record retention notes",
+        "Exam record protection procedure",
+        "Certificate record controls",
+        "Staff record access controls"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "education"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D6-EDU-03",
+      "domainId": "D6",
+      "domainName": "Informations documentées et maîtrise opérationnelle",
+      "controlCode": "D6-EDU-03",
+      "question": "Les résultats d’examens et certifications sont-ils conservés de manière sécurisée ?",
+      "helpText": "This verifies whether external education platforms are visible and monitored as operational dependencies.",
+      "expectedEvidence": [
+        "External learning platform register",
+        "Video tool review records",
+        "Cloud storage usage documentation",
+        "School management provider review notes"
+      ],
+      "severity": "medium",
+      "weight": 1.1,
+      "appliesTo": [
+        "education"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D6-TEL-01",
+      "domainId": "D6",
+      "domainName": "Informations documentées et maîtrise opérationnelle",
+      "controlCode": "D6-TEL-01",
+      "question": "Les procédures d’exploitation et de maintenance réseau sont-elles documentées ?",
+      "helpText": "Telecom operations require controlled procedures to maintain network security, availability, and service continuité.",
+      "expectedEvidence": [
+        "NOC/SOC runbook",
+        "Network configuration change procedure",
+        "Network incident handling procedure",
+        "Provisioning and connectivity process documentation"
+      ],
+      "severity": "critical",
+      "weight": 1.4,
+      "appliesTo": [
+        "telecom"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D6-TEL-02",
+      "domainId": "D6",
+      "domainName": "Informations documentées et maîtrise opérationnelle",
+      "controlCode": "D6-TEL-02",
+      "question": "Les configurations réseau sont-elles sauvegardées et leurs modifications tracées ?",
+      "helpText": "This checks whether operational preuve for network services is protected and available for revue or investigation.",
+      "expectedEvidence": [
+        "Configuration record repository",
+        "Monitoring log retention settings",
+        "Incident record archive",
+        "Maintenance record controls"
+      ],
+      "severity": "critical",
+      "weight": 1.4,
+      "appliesTo": [
+        "telecom"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D6-TEL-03",
+      "domainId": "D6",
+      "domainName": "Informations documentées et maîtrise opérationnelle",
+      "controlCode": "D6-TEL-03",
+      "question": "Les enregistrements de supervision réseau sont-ils conservés et consultables ?",
+      "helpText": "This verifies whether critical telecom dependencies are monitored and controlled as part of operations.",
+      "expectedEvidence": [
+        "Critical provider register",
+        "Data center review notes",
+        "Maintenance provider records",
+        "Site dependency documentation"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "telecom"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D6-SERV-01",
+      "domainId": "D6",
+      "domainName": "Informations documentées et maîtrise opérationnelle",
+      "controlCode": "D6-SERV-01",
+      "question": "Les procédures de gestion des dossiers clients sont-elles documentées ?",
+      "helpText": "Professional services firms should control how client information is created, stored, shared, archived, and protected.",
+      "expectedEvidence": [
+        "Client file handling procedure",
+        "Project workspace procedure",
+        "Contract repository controls",
+        "Deliverable management process"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "professional_services"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D6-SERV-02",
+      "domainId": "D6",
+      "domainName": "Informations documentées et maîtrise opérationnelle",
+      "controlCode": "D6-SERV-02",
+      "question": "Les modifications des espaces de travail clients sont-elles tracées ?",
+      "helpText": "This checks whether client-related documentation is protected from unauthorized access, loss, or improper sharing.",
+      "expectedEvidence": [
+        "Client document access controls",
+        "Contract retention rules",
+        "Project record archive",
+        "Deliverable protection notes"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "professional_services"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D6-SERV-03",
+      "domainId": "D6",
+      "domainName": "Informations documentées et maîtrise opérationnelle",
+      "controlCode": "D6-SERV-03",
+      "question": "Les documents clients sont-ils conservés conformément aux exigences contractuelles ?",
+      "helpText": "This verifies whether operational changes affecting client information and project access are controlled.",
+      "expectedEvidence": [
+        "Contractor access review records",
+        "Remote work procedure",
+        "Collaboration platform change records",
+        "Client workspace access review"
+      ],
+      "severity": "medium",
+      "weight": 1.1,
+      "appliesTo": [
+        "professional_services"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D6-SME-01",
+      "domainId": "D6",
+      "domainName": "Informations documentées et maîtrise opérationnelle",
+      "controlCode": "D6-SME-01",
+      "question": "Les procédures simples de gestion des informations sont-elles écrites ?",
+      "helpText": "For SMEs, documentation can be simple but should cover the basic operational activities that reduce security risk.",
+      "expectedEvidence": [
+        "Basic IT/security procedure",
+        "Backup procedure",
+        "Account management checklist",
+        "Incident reporting instructions"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "general_sme"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D6-SME-02",
+      "domainId": "D6",
+      "domainName": "Informations documentées et maîtrise opérationnelle",
+      "controlCode": "D6-SME-02",
+      "question": "Les documents importants sont-ils identifiés et protégés ?",
+      "helpText": "This checks whether the company can find and trust the basic preuve needed for security readiness.",
+      "expectedEvidence": [
+        "Document repository",
+        "Backup records",
+        "Account administration records",
+        "IT support ticket or service records"
+      ],
+      "severity": "medium",
+      "weight": 1.1,
+      "appliesTo": [
+        "general_sme"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D6-SME-03",
+      "domainId": "D6",
+      "domainName": "Informations documentées et maîtrise opérationnelle",
+      "controlCode": "D6-SME-03",
+      "question": "Les sauvegardes sont-elles configurées et vérifiées régulièrement ?",
+      "helpText": "External IT support should be documented so responsibilities, access, sauvegardes, support, and escalation are not unclear.",
+      "expectedEvidence": [
+        "IT provider service agreement",
+        "Provider responsibility matrix",
+        "Provider access list",
+        "Support records"
+      ],
+      "severity": "high",
+      "weight": 1.1,
+      "appliesTo": [
+        "general_sme"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    }
+  ],
+  "selectionLogic": {
+    "description": "For each company, return all core questions plus the sector-specific questions matching the company's sector.",
+    "expectedQuestionCountPerCompany": 9,
+    "pseudoCode": "questions = coreQuestions + sectorQuestions.filter(q => q.appliesTo.includes(company.sector))"
+  }
+}

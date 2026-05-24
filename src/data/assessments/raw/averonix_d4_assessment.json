@@ -1,0 +1,953 @@
+{
+  "domain": {
+    "id": "D4",
+    "code": "D4",
+    "name": "Objectifs de sécurité et planification",
+    "shortName": "Planification",
+    "description": "Vérifie la définition d’objectifs de sécurité clairs, la planification des actions, l’affectation des ressources et le suivi des progrès.",
+    "frameworkFocus": "Préparation ISO/IEC 27001",
+    "sourceNote": "Questions de préparation rédigées de manière indépendante. Ce fichier ne reproduit pas le texte normatif de la norme ISO.",
+    "defaultSource": "assessment",
+    "weight": 1.0,
+    "answerScale": [
+      {
+        "value": "not_implemented",
+        "label": "Non mis en place",
+        "score": 0,
+        "description": "Aucun processus, contrôle ou pratique claire n'est en place."
+      },
+      {
+        "value": "informal",
+        "label": "Informel",
+        "score": 25,
+        "description": "La pratique existe de manière informelle, mais elle n'est pas clairement documentée ni suivie."
+      },
+      {
+        "value": "partial",
+        "label": "Partiellement mis en place",
+        "score": 50,
+        "description": "Le contrôle existe partiellement, mais il reste incomplet, irrégulier ou limité à certains cas."
+      },
+      {
+        "value": "implemented",
+        "label": "Mis en place",
+        "score": 75,
+        "description": "Le contrôle est appliqué de manière claire et peut être expliqué."
+      },
+      {
+        "value": "verified",
+        "label": "Mis en place et vérifié",
+        "score": 100,
+        "description": "Le contrôle est appliqué, documenté, et revu ou vérifié récemment."
+      }
+    ],
+    "scoringRules": {
+      "questionScore": "selectedAnswerScore + evidenceReferenceBonus",
+      "evidenceReferenceBonus": 5,
+      "maxQuestionScore": 100,
+      "domainScore": "average of answered question scores in the domain",
+      "globalReadinessScore": "average of all domain scores",
+      "completionScore": "answered questions / total questions",
+      "criticalGapRule": "critical controls with score < 50",
+      "weakControlRule": "controls with score < 60",
+      "importantNote": "Le score de préparation n'est pas la même chose que le taux de complétion du questionnaire."
+    },
+    "uiLabels": {
+      "answerQuestion": "Répondre à la question",
+      "implementationLevel": "Niveau de mise en place",
+      "optionalEvidence": "Note ou référence de preuve — optionnel",
+      "saveAnswer": "Enregistrer la réponse",
+      "nextQuestion": "Question suivante",
+      "previousQuestion": "Question précédente",
+      "domainProgress": "Progression du domaine",
+      "questionnaireCompletion": "Complétion du questionnaire",
+      "readinessScore": "Score de préparation",
+      "scoreExplanation": "Le score est calculé à partir du niveau de mise en place choisi pour chaque contrôle. Une référence de preuve optionnelle peut légèrement renforcer le score.",
+      "notCertification": "Ce résultat fournit une indication de préparation et d'analyse des écarts. Il ne constitue pas une certification, un audit formel ou un avis juridique."
+    },
+    "nextActionRules": [
+      {
+        "condition": "critical control score < 50",
+        "priority": "high",
+        "label": "Traiter les contrôles critiques faibles"
+      },
+      {
+        "condition": "domain score < 60",
+        "priority": "medium",
+        "label": "Améliorer le domaine le plus faible"
+      },
+      {
+        "condition": "answered questions without evidence reference > 10",
+        "priority": "medium",
+        "label": "Ajouter des références de preuves"
+      },
+      {
+        "condition": "completion score < 100",
+        "priority": "low",
+        "label": "Continuer l'évaluation"
+      }
+    ]
+  },
+  "companySectors": [
+    "saas",
+    "fintech",
+    "healthcare",
+    "ecommerce",
+    "education",
+    "telecom",
+    "professional_services",
+    "general_sme"
+  ],
+  "questionSchema": {
+    "id": "string",
+    "domainId": "D4",
+    "domainName": "Security Objectives & Planning",
+    "controlCode": "string",
+    "question": "string",
+    "helpText": "string",
+    "expectedEvidence": [
+      "string"
+    ],
+    "severity": "low | medium | high | critical",
+    "weight": "number",
+    "appliesTo": "all | CompanySector[]",
+    "source": "assessment | agent | integration | combined"
+  },
+  "coreQuestions": [
+    {
+      "id": "D4-C01",
+      "domainId": "D4",
+      "domainName": "Objectifs de sécurité et planification",
+      "controlCode": "D4-C01",
+      "question": "Votre organisation a-t-elle défini des objectifs de sécurité de l’information mesurables et pertinents ?",
+      "helpText": "Les objectifs de sécurité doivent être alignés sur la stratégie de l’organisation et définis aux niveaux et fonctions pertinents.",
+      "expectedEvidence": [
+        "Information security objectives document",
+        "Security roadmap",
+        "ISMS planning document",
+        "Management-approved security goals"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": "all",
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D4-C02",
+      "domainId": "D4",
+      "domainName": "Objectifs de sécurité et planification",
+      "controlCode": "D4-C02",
+      "question": "Les objectifs de sécurité sont-ils communiqués aux équipes concernées ?",
+      "helpText": "La communication des objectifs permet à chaque équipe de comprendre ce qu’elle doit accomplir en matière de sécurité.",
+      "expectedEvidence": [
+        "Security KPI list",
+        "Objective tracking dashboard",
+        "Target metrics or milestones",
+        "Progress reporting template"
+      ],
+      "severity": "high",
+      "weight": 1.1,
+      "appliesTo": "all",
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D4-C03",
+      "domainId": "D4",
+      "domainName": "Objectifs de sécurité et planification",
+      "controlCode": "D4-C03",
+      "question": "Existe-t-il un plan pour atteindre les objectifs de sécurité, avec des ressources, délais et responsabilités définis ?",
+      "helpText": "Un plan d’action avec des jalons clairs permet de suivre la progression vers les objectifs de sécurité.",
+      "expectedEvidence": [
+        "Security objective action plan",
+        "Owner assignment list",
+        "Timeline or roadmap",
+        "Resource allocation notes"
+      ],
+      "severity": "critical",
+      "weight": 1.3,
+      "appliesTo": "all",
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D4-C04",
+      "domainId": "D4",
+      "domainName": "Objectifs de sécurité et planification",
+      "controlCode": "D4-C04",
+      "question": "Les changements affectant le SMSI sont-ils planifiés et maîtrisés ?",
+      "helpText": "Les changements organisationnels, techniques ou réglementaires doivent être anticipés et accompagnés pour maintenir l’efficacité du SMSI.",
+      "expectedEvidence": [
+        "Objective review records",
+        "Updated security roadmap",
+        "Risk-driven objective updates",
+        "Management review notes"
+      ],
+      "severity": "medium",
+      "weight": 1.0,
+      "appliesTo": "all",
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D4-C05",
+      "domainId": "D4",
+      "domainName": "Objectifs de sécurité et planification",
+      "controlCode": "D4-C05",
+      "question": "Les processus nécessaires au SMSI sont-ils documentés et opérationnels ?",
+      "helpText": "Les processus documentés garantissent la reproductibilité et la traçabilité des activités du SMSI.",
+      "expectedEvidence": [
+        "Change planning records",
+        "ISMS change impact assessment",
+        "Change approval notes",
+        "Implementation plan for ISMS changes"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": "all",
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D4-C06",
+      "domainId": "D4",
+      "domainName": "Objectifs de sécurité et planification",
+      "controlCode": "D4-C06",
+      "question": "La planification du SMSI est-elle mise à jour en fonction des résultats des évaluations et des revues ?",
+      "helpText": "La planification doit être dynamique et s’adapter aux résultats des évaluations des risques, des audits et des revues.",
+      "expectedEvidence": [
+        "Security progress reports",
+        "Management dashboard",
+        "Security steering meeting notes",
+        "Objective status review records"
+      ],
+      "severity": "medium",
+      "weight": 1.0,
+      "appliesTo": "all",
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    }
+  ],
+  "sectorQuestions": [
+    {
+      "id": "D4-SAAS-01",
+      "domainId": "D4",
+      "domainName": "Objectifs de sécurité et planification",
+      "controlCode": "D4-SAAS-01",
+      "question": "Les objectifs de sécurité de l’entreprise SaaS sont-ils alignés sur les objectifs commerciaux et techniques ?",
+      "helpText": "SaaS objectives should translate security readiness into product, engineering, platform, and customer trust improvements.",
+      "expectedEvidence": [
+        "SaaS security roadmap",
+        "Secure development objectives",
+        "Production reliability targets",
+        "Customer data protection goals"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "saas"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D4-SAAS-02",
+      "domainId": "D4",
+      "domainName": "Objectifs de sécurité et planification",
+      "controlCode": "D4-SAAS-02",
+      "question": "Les objectifs de sécurité sont-ils communiqués aux équipes de développement et d’exploitation ?",
+      "helpText": "This checks whether security work is planned alongside product and engineering work rather than treated as separate or optional.",
+      "expectedEvidence": [
+        "Security backlog items",
+        "Product roadmap with security initiatives",
+        "Sprint or quarterly planning notes",
+        "Engineering security OKRs"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "saas"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D4-SAAS-03",
+      "domainId": "D4",
+      "domainName": "Objectifs de sécurité et planification",
+      "controlCode": "D4-SAAS-03",
+      "question": "Les ressources nécessaires pour atteindre les objectifs de sécurité sont-elles budgétées ?",
+      "helpText": "This verifies whether major SaaS changes are assessed for security impact before implementation.",
+      "expectedEvidence": [
+        "Production change plan",
+        "CI/CD change review",
+        "Authentication change approval",
+        "Security impact notes for product changes"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "saas"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D4-FIN-01",
+      "domainId": "D4",
+      "domainName": "Objectifs de sécurité et planification",
+      "controlCode": "D4-FIN-01",
+      "question": "Les objectifs de sécurité financière sont-ils définis et alignés sur les exigences réglementaires ?",
+      "helpText": "Fintech objectifs de sécurité should reflect financial trust, transaction security, service continuité, and partner requirements.",
+      "expectedEvidence": [
+        "Fintech security objectives",
+        "Fraud reduction targets",
+        "Payment integrity roadmap",
+        "Financial platform resilience plan"
+      ],
+      "severity": "critical",
+      "weight": 1.3,
+      "appliesTo": [
+        "fintech"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D4-FIN-02",
+      "domainId": "D4",
+      "domainName": "Objectifs de sécurité et planification",
+      "controlCode": "D4-FIN-02",
+      "question": "Les objectifs de sécurité sont-ils intégrés dans les plans d’activité de l’organisation financière ?",
+      "helpText": "This checks whether external financial obligations influence security planning and prioritization.",
+      "expectedEvidence": [
+        "Objective mapping to external requirements",
+        "Banking partner requirement plan",
+        "Payment provider security roadmap",
+        "Contractual obligation tracking"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "fintech"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D4-FIN-03",
+      "domainId": "D4",
+      "domainName": "Objectifs de sécurité et planification",
+      "controlCode": "D4-FIN-03",
+      "question": "Les progrès vers les objectifs de sécurité sont-ils mesurés et rapportés ?",
+      "helpText": "Financial workflow changes can create significant risk and should be planned with security impact in mind.",
+      "expectedEvidence": [
+        "Payment flow change review",
+        "KYC workflow security review",
+        "Financial API change approval",
+        "Fraud tooling change notes"
+      ],
+      "severity": "critical",
+      "weight": 1.3,
+      "appliesTo": [
+        "fintech"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D4-HEALTH-01",
+      "domainId": "D4",
+      "domainName": "Objectifs de sécurité et planification",
+      "controlCode": "D4-HEALTH-01",
+      "question": "Les objectifs de sécurité de l’établissement de santé sont-ils documentés et communiqués ?",
+      "helpText": "Healthcare objectives should reflect confidentiality, availability, integrity, and continuité of patient-facing operations.",
+      "expectedEvidence": [
+        "Healthcare security objectives",
+        "Patient information protection plan",
+        "Clinical availability targets",
+        "Healthcare service continuity roadmap"
+      ],
+      "severity": "critical",
+      "weight": 1.3,
+      "appliesTo": [
+        "healthcare"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D4-HEALTH-02",
+      "domainId": "D4",
+      "domainName": "Objectifs de sécurité et planification",
+      "controlCode": "D4-HEALTH-02",
+      "question": "Les objectifs de sécurité tiennent-ils compte des exigences réglementaires en santé ?",
+      "helpText": "Healthcare objectifs de sécurité often require coordination across clinical, administrative, technical, and partner roles.",
+      "expectedEvidence": [
+        "Healthcare security communication records",
+        "Clinical staff security objectives",
+        "IT and admin team planning notes",
+        "Partner security expectation notes"
+      ],
+      "severity": "high",
+      "weight": 1.1,
+      "appliesTo": [
+        "healthcare"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D4-HEALTH-03",
+      "domainId": "D4",
+      "domainName": "Objectifs de sécurité et planification",
+      "controlCode": "D4-HEALTH-03",
+      "question": "Les objectifs sont-ils réalistes compte tenu des ressources disponibles ?",
+      "helpText": "Changes affecting patient data or clinical operations should be planned and revueed to avoid security and continuité gaps.",
+      "expectedEvidence": [
+        "Clinical system change review",
+        "Patient record platform change notes",
+        "Medical partner change assessment",
+        "Security impact review records"
+      ],
+      "severity": "critical",
+      "weight": 1.3,
+      "appliesTo": [
+        "healthcare"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D4-ECOM-01",
+      "domainId": "D4",
+      "domainName": "Objectifs de sécurité et planification",
+      "controlCode": "D4-ECOM-01",
+      "question": "Les objectifs de sécurité de la plateforme e-commerce sont-ils définis et approuvés ?",
+      "helpText": "E-commerce objectives should focus on protecting customer trust, account security, payments, orders, and store continuité.",
+      "expectedEvidence": [
+        "E-commerce security objectives",
+        "Customer account protection roadmap",
+        "Checkout security improvement plan",
+        "Store availability targets"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "ecommerce"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D4-ECOM-02",
+      "domainId": "D4",
+      "domainName": "Objectifs de sécurité et planification",
+      "controlCode": "D4-ECOM-02",
+      "question": "Les objectifs de sécurité sont-ils inclus lors de la planification des nouvelles fonctionnalités ?",
+      "helpText": "This checks whether e-commerce platform and third-party changes are planned with security and customer trust in mind.",
+      "expectedEvidence": [
+        "Store change review",
+        "Payment gateway change notes",
+        "Delivery integration change plan",
+        "Marketing platform security review"
+      ],
+      "severity": "high",
+      "weight": 1.1,
+      "appliesTo": [
+        "ecommerce"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D4-ECOM-03",
+      "domainId": "D4",
+      "domainName": "Objectifs de sécurité et planification",
+      "controlCode": "D4-ECOM-03",
+      "question": "Les progrès sont-ils suivis et communiqués à l’équipe e-commerce ?",
+      "helpText": "This verifies whether security planning prioritizes what matters most to customer trust and business continuité.",
+      "expectedEvidence": [
+        "Prioritized e-commerce security roadmap",
+        "Fraud-related improvement plan",
+        "Customer impact prioritization notes",
+        "Operational dependency review"
+      ],
+      "severity": "medium",
+      "weight": 1.1,
+      "appliesTo": [
+        "ecommerce"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D4-EDU-01",
+      "domainId": "D4",
+      "domainName": "Objectifs de sécurité et planification",
+      "controlCode": "D4-EDU-01",
+      "question": "Les objectifs de sécurité de l’établissement éducatif sont-ils définis et partagés ?",
+      "helpText": "Education objectifs de sécurité should reflect protection of student information, exam trust, learning continuité, and school administration.",
+      "expectedEvidence": [
+        "Education security objectives",
+        "Student record protection plan",
+        "Exam integrity improvement roadmap",
+        "Learning platform availability targets"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "education"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D4-EDU-02",
+      "domainId": "D4",
+      "domainName": "Objectifs de sécurité et planification",
+      "controlCode": "D4-EDU-02",
+      "question": "Les objectifs de sécurité tiennent-ils compte de la protection des données des mineurs ?",
+      "helpText": "This checks whether security planning reaches the roles that operate education systems and handle student information.",
+      "expectedEvidence": [
+        "Teacher security communication",
+        "Admin staff security planning notes",
+        "IT security objective tracking",
+        "Provider expectation notes"
+      ],
+      "severity": "medium",
+      "weight": 1.0,
+      "appliesTo": [
+        "education"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D4-EDU-03",
+      "domainId": "D4",
+      "domainName": "Objectifs de sécurité et planification",
+      "controlCode": "D4-EDU-03",
+      "question": "Les ressources allouées aux objectifs de sécurité sont-elles adaptées aux besoins ?",
+      "helpText": "Education technology changes can affect student information, exam integrity, and learning continuité.",
+      "expectedEvidence": [
+        "Exam platform change review",
+        "Learning platform change notes",
+        "Cloud storage change assessment",
+        "Student system security impact review"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "education"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D4-TEL-01",
+      "domainId": "D4",
+      "domainName": "Objectifs de sécurité et planification",
+      "controlCode": "D4-TEL-01",
+      "question": "Les objectifs de sécurité de l’opérateur télécom sont-ils alignés sur la continuité de service ?",
+      "helpText": "Telecom and network operators should align objectives with service continuité, operational security, supervision, and response capabilities.",
+      "expectedEvidence": [
+        "Network security objectives",
+        "Infrastructure protection roadmap",
+        "Monitoring improvement plan",
+        "Incident response readiness objectives"
+      ],
+      "severity": "critical",
+      "weight": 1.3,
+      "appliesTo": [
+        "telecom"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D4-TEL-02",
+      "domainId": "D4",
+      "domainName": "Objectifs de sécurité et planification",
+      "controlCode": "D4-TEL-02",
+      "question": "Les objectifs de sécurité sont-ils intégrés dans la planification des investissements réseau ?",
+      "helpText": "This checks whether objectifs de sécurité are reflected in operational planning and infrastructure change planning.",
+      "expectedEvidence": [
+        "Network operations plan with security objectives",
+        "Maintenance security planning notes",
+        "Infrastructure upgrade security review",
+        "Provider management roadmap"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "telecom"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D4-TEL-03",
+      "domainId": "D4",
+      "domainName": "Objectifs de sécurité et planification",
+      "controlCode": "D4-TEL-03",
+      "question": "Les progrès vers les objectifs de sécurité sont-ils suivis et mis à jour ?",
+      "helpText": "Network infrastructure changes can affect availability, access, segmentation, supervision, and incident detection.",
+      "expectedEvidence": [
+        "Network change approval records",
+        "Firewall or router change review",
+        "Monitoring system change notes",
+        "Upstream connectivity change assessment"
+      ],
+      "severity": "critical",
+      "weight": 1.3,
+      "appliesTo": [
+        "telecom"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D4-SERV-01",
+      "domainId": "D4",
+      "domainName": "Objectifs de sécurité et planification",
+      "controlCode": "D4-SERV-01",
+      "question": "Les objectifs de sécurité du cabinet de services sont-ils documentés et connus des équipes ?",
+      "helpText": "Professional services objectives should reflect client trust, confidentiality, contrôle d’accès, and secure project delivery.",
+      "expectedEvidence": [
+        "Client confidentiality objectives",
+        "Project workspace security roadmap",
+        "Remote work security objectives",
+        "Deliverable protection plan"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "professional_services"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D4-SERV-02",
+      "domainId": "D4",
+      "domainName": "Objectifs de sécurité et planification",
+      "controlCode": "D4-SERV-02",
+      "question": "Les objectifs de sécurité sont-ils liés aux exigences contractuelles des clients ?",
+      "helpText": "This checks whether client-facing obligations influence the organization’s security planning.",
+      "expectedEvidence": [
+        "Client requirement mapping",
+        "Contractual security objective tracking",
+        "Project-specific security plan",
+        "Confidentiality obligation review"
+      ],
+      "severity": "medium",
+      "weight": 1.1,
+      "appliesTo": [
+        "professional_services"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D4-SERV-03",
+      "domainId": "D4",
+      "domainName": "Objectifs de sécurité et planification",
+      "controlCode": "D4-SERV-03",
+      "question": "Les ressources pour la sécurité sont-elles planifiées dans le budget annuel ?",
+      "helpText": "Changes to project tools and access models can affect client confidentiality and delivery integrity.",
+      "expectedEvidence": [
+        "Collaboration platform change review",
+        "Client folder access change notes",
+        "Contractor access change approval",
+        "Project tool security impact review"
+      ],
+      "severity": "high",
+      "weight": 1.1,
+      "appliesTo": [
+        "professional_services"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D4-SME-01",
+      "domainId": "D4",
+      "domainName": "Objectifs de sécurité et planification",
+      "controlCode": "D4-SME-01",
+      "question": "Des objectifs simples de sécurité sont-ils définis pour votre organisation ?",
+      "helpText": "For SMEs, objectifs de sécurité should be practical, understandable, and connected to the systems that keep the company running.",
+      "expectedEvidence": [
+        "Basic security objectives list",
+        "Backup improvement plan",
+        "Account security roadmap",
+        "Device and email security plan"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "general_sme"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D4-SME-02",
+      "domainId": "D4",
+      "domainName": "Objectifs de sécurité et planification",
+      "controlCode": "D4-SME-02",
+      "question": "Ces objectifs sont-ils communiqués aux personnes concernées ?",
+      "helpText": "This checks whether objectives are achievable and matched to the company’s actual capacity.",
+      "expectedEvidence": [
+        "Security improvement roadmap",
+        "Budget or resource notes",
+        "External IT provider plan",
+        "Prioritized security action list"
+      ],
+      "severity": "medium",
+      "weight": 1.0,
+      "appliesTo": [
+        "general_sme"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D4-SME-03",
+      "domainId": "D4",
+      "domainName": "Objectifs de sécurité et planification",
+      "controlCode": "D4-SME-03",
+      "question": "Les actions pour atteindre ces objectifs sont-elles écrites et suivies ?",
+      "helpText": "Even small companies should consider security impact when changing key tools, providers, accounts, or business systems.",
+      "expectedEvidence": [
+        "Tool change notes",
+        "Provider change review",
+        "Email or device change plan",
+        "Business system change approval"
+      ],
+      "severity": "medium",
+      "weight": 1.0,
+      "appliesTo": [
+        "general_sme"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    }
+  ],
+  "selectionLogic": {
+    "description": "For each company, return all core questions plus the sector-specific questions matching the company's sector.",
+    "expectedQuestionCountPerCompany": 9,
+    "pseudoCode": "questions = coreQuestions + sectorQuestions.filter(q => q.appliesTo.includes(company.sector))"
+  }
+}

@@ -1,0 +1,953 @@
+{
+  "domain": {
+    "id": "D3",
+    "code": "D3",
+    "name": "Évaluation des risques et traitement des risques",
+    "shortName": "Risques",
+    "description": "Évalue la méthode d’évaluation des risques, l’identification des menaces, l’analyse des impacts, le plan de traitement et la revue des risques.",
+    "frameworkFocus": "Préparation ISO/IEC 27001",
+    "sourceNote": "Questions de préparation rédigées de manière indépendante. Ce fichier ne reproduit pas le texte normatif de la norme ISO.",
+    "defaultSource": "assessment",
+    "weight": 1.4,
+    "answerScale": [
+      {
+        "value": "not_implemented",
+        "label": "Non mis en place",
+        "score": 0,
+        "description": "Aucun processus, contrôle ou pratique claire n'est en place."
+      },
+      {
+        "value": "informal",
+        "label": "Informel",
+        "score": 25,
+        "description": "La pratique existe de manière informelle, mais elle n'est pas clairement documentée ni suivie."
+      },
+      {
+        "value": "partial",
+        "label": "Partiellement mis en place",
+        "score": 50,
+        "description": "Le contrôle existe partiellement, mais il reste incomplet, irrégulier ou limité à certains cas."
+      },
+      {
+        "value": "implemented",
+        "label": "Mis en place",
+        "score": 75,
+        "description": "Le contrôle est appliqué de manière claire et peut être expliqué."
+      },
+      {
+        "value": "verified",
+        "label": "Mis en place et vérifié",
+        "score": 100,
+        "description": "Le contrôle est appliqué, documenté, et revu ou vérifié récemment."
+      }
+    ],
+    "scoringRules": {
+      "questionScore": "selectedAnswerScore + evidenceReferenceBonus",
+      "evidenceReferenceBonus": 5,
+      "maxQuestionScore": 100,
+      "domainScore": "average of answered question scores in the domain",
+      "globalReadinessScore": "average of all domain scores",
+      "completionScore": "answered questions / total questions",
+      "criticalGapRule": "critical controls with score < 50",
+      "weakControlRule": "controls with score < 60",
+      "importantNote": "Le score de préparation n'est pas la même chose que le taux de complétion du questionnaire."
+    },
+    "uiLabels": {
+      "answerQuestion": "Répondre à la question",
+      "implementationLevel": "Niveau de mise en place",
+      "optionalEvidence": "Note ou référence de preuve — optionnel",
+      "saveAnswer": "Enregistrer la réponse",
+      "nextQuestion": "Question suivante",
+      "previousQuestion": "Question précédente",
+      "domainProgress": "Progression du domaine",
+      "questionnaireCompletion": "Complétion du questionnaire",
+      "readinessScore": "Score de préparation",
+      "scoreExplanation": "Le score est calculé à partir du niveau de mise en place choisi pour chaque contrôle. Une référence de preuve optionnelle peut légèrement renforcer le score.",
+      "notCertification": "Ce résultat fournit une indication de préparation et d'analyse des écarts. Il ne constitue pas une certification, un audit formel ou un avis juridique."
+    },
+    "nextActionRules": [
+      {
+        "condition": "critical control score < 50",
+        "priority": "high",
+        "label": "Traiter les contrôles critiques faibles"
+      },
+      {
+        "condition": "domain score < 60",
+        "priority": "medium",
+        "label": "Améliorer le domaine le plus faible"
+      },
+      {
+        "condition": "answered questions without evidence reference > 10",
+        "priority": "medium",
+        "label": "Ajouter des références de preuves"
+      },
+      {
+        "condition": "completion score < 100",
+        "priority": "low",
+        "label": "Continuer l'évaluation"
+      }
+    ]
+  },
+  "companySectors": [
+    "saas",
+    "fintech",
+    "healthcare",
+    "ecommerce",
+    "education",
+    "telecom",
+    "professional_services",
+    "general_sme"
+  ],
+  "questionSchema": {
+    "id": "string",
+    "domainId": "D3",
+    "domainName": "Risk Assessment & Risk Treatment",
+    "controlCode": "string",
+    "question": "string",
+    "helpText": "string",
+    "expectedEvidence": [
+      "string"
+    ],
+    "severity": "low | medium | high | critical",
+    "weight": "number",
+    "appliesTo": "all | CompanySector[]",
+    "source": "assessment | agent | integration | combined"
+  },
+  "coreQuestions": [
+    {
+      "id": "D3-C01",
+      "domainId": "D3",
+      "domainName": "Évaluation des risques et traitement des risques",
+      "controlCode": "D3-C01",
+      "question": "Votre organisation a-t-elle défini et appliqué un processus d’évaluation des risques sécurité de l’information ?",
+      "helpText": "Le processus d’évaluation des risques doit être défini, documenté et appliqué de manière cohérente pour identifier et analyser les risques sécurité.",
+      "expectedEvidence": [
+        "Risk assessment methodology",
+        "Risk assessment procedure",
+        "Risk scoring criteria",
+        "Risk assessment template"
+      ],
+      "severity": "critical",
+      "weight": 1.4,
+      "appliesTo": "all",
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D3-C02",
+      "domainId": "D3",
+      "domainName": "Évaluation des risques et traitement des risques",
+      "controlCode": "D3-C02",
+      "question": "Les critères d’acceptation des risques sont-ils définis et appliqués ?",
+      "helpText": "Les critères d’acceptation des risques définissent le niveau de risque que l’organisation est prête à accepter dans le cadre de ses activités.",
+      "expectedEvidence": [
+        "Risk criteria document",
+        "Likelihood and impact scale",
+        "Risk acceptance criteria",
+        "Risk scoring matrix"
+      ],
+      "severity": "critical",
+      "weight": 1.4,
+      "appliesTo": "all",
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D3-C03",
+      "domainId": "D3",
+      "domainName": "Évaluation des risques et traitement des risques",
+      "controlCode": "D3-C03",
+      "question": "Les risques sécurité de l’information sont-ils identifiés, analysés et évalués selon des critères définis ?",
+      "helpText": "Les risques sont identifiés en tenant compte des menaces, vulnérabilités, impacts et de la probabilité d’occurrence.",
+      "expectedEvidence": [
+        "Information security risk register",
+        "Risk workshop output",
+        "Asset-risk mapping",
+        "Threat and vulnerability notes"
+      ],
+      "severity": "critical",
+      "weight": 1.5,
+      "appliesTo": "all",
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D3-C04",
+      "domainId": "D3",
+      "domainName": "Évaluation des risques et traitement des risques",
+      "controlCode": "D3-C04",
+      "question": "Les propriétaires des risques sont-ils identifiés pour chaque risque sécurité ?",
+      "helpText": "Chaque risque identifié doit avoir un propriétaire responsable de l’évaluation, du traitement et du suivi.",
+      "expectedEvidence": [
+        "Risk register with owner column",
+        "Risk ownership matrix",
+        "Management assignment records",
+        "Risk review meeting notes"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": "all",
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D3-C05",
+      "domainId": "D3",
+      "domainName": "Évaluation des risques et traitement des risques",
+      "controlCode": "D3-C05",
+      "question": "Votre organisation a-t-elle défini un plan de traitement des risques avec des actions et délais clairs ?",
+      "helpText": "Le plan de traitement des risques décrit les actions choisies (réduction, acceptation, transfert, évitement), les responsables et les délais.",
+      "expectedEvidence": [
+        "Risk treatment plan",
+        "Treatment action tracker",
+        "Control implementation plan",
+        "Risk decision records"
+      ],
+      "severity": "critical",
+      "weight": 1.5,
+      "appliesTo": "all",
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D3-C06",
+      "domainId": "D3",
+      "domainName": "Évaluation des risques et traitement des risques",
+      "controlCode": "D3-C06",
+      "question": "La déclaration d’applicabilité est-elle documentée et inclut-elle les contrôles nécessaires ?",
+      "helpText": "La déclaration d’applicabilité (SoA) liste les contrôles nécessaires et justifie leur inclusion ou exclusion.",
+      "expectedEvidence": [
+        "Residual risk approval records",
+        "Risk acceptance forms",
+        "Management approval notes",
+        "Risk treatment sign-off"
+      ],
+      "severity": "high",
+      "weight": 1.3,
+      "appliesTo": "all",
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    }
+  ],
+  "sectorQuestions": [
+    {
+      "id": "D3-SAAS-01",
+      "domainId": "D3",
+      "domainName": "Évaluation des risques et traitement des risques",
+      "controlCode": "D3-SAAS-01",
+      "question": "Les risques spécifiques au SaaS (disponibilité des données, sécurité du cloud, dépendances API) sont-ils inclus dans l’évaluation des risques ?",
+      "helpText": "SaaS évaluation des risques should cover production cloud infrastructure, customer data exposure, downtime, misconfiguration, and service abuse.",
+      "expectedEvidence": [
+        "SaaS production risk register",
+        "Cloud risk assessment",
+        "Customer data exposure risk analysis",
+        "Availability risk review"
+      ],
+      "severity": "critical",
+      "weight": 1.4,
+      "appliesTo": [
+        "saas"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D3-SAAS-02",
+      "domainId": "D3",
+      "domainName": "Évaluation des risques et traitement des risques",
+      "controlCode": "D3-SAAS-02",
+      "question": "Les risques liés aux fournisseurs cloud et aux dépendances logicielles sont-ils évalués et traités ?",
+      "helpText": "This checks whether the company assesses risks in software delivery, code repositories, secrets, build pipelines, and deployment processes.",
+      "expectedEvidence": [
+        "Secure development risk assessment",
+        "CI/CD risk review",
+        "Repository access risk review",
+        "Secrets management risk notes"
+      ],
+      "severity": "high",
+      "weight": 1.3,
+      "appliesTo": [
+        "saas"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D3-SAAS-03",
+      "domainId": "D3",
+      "domainName": "Évaluation des risques et traitement des risques",
+      "controlCode": "D3-SAAS-03",
+      "question": "Les actions de traitement des risques sont-elles priorisées en fonction de leur impact sur les clients SaaS ?",
+      "helpText": "This verifies whether the company prioritizes traitement des risques based on realistic product and customer impact.",
+      "expectedEvidence": [
+        "Risk treatment prioritization list",
+        "Security roadmap",
+        "Product security backlog",
+        "Customer impact assessment"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "saas"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D3-FIN-01",
+      "domainId": "D3",
+      "domainName": "Évaluation des risques et traitement des risques",
+      "controlCode": "D3-FIN-01",
+      "question": "Les risques liés aux transactions financières et aux flux de paiement sont-ils évalués formellement ?",
+      "helpText": "Fintech évaluation des risques should cover the workflows and platforms that directly affect financial trust, transactions, and customer protection.",
+      "expectedEvidence": [
+        "Payment risk assessment",
+        "Transaction integrity risk register",
+        "Fraud risk assessment",
+        "Customer onboarding risk analysis"
+      ],
+      "severity": "critical",
+      "weight": 1.5,
+      "appliesTo": [
+        "fintech"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D3-FIN-02",
+      "domainId": "D3",
+      "domainName": "Évaluation des risques et traitement des risques",
+      "controlCode": "D3-FIN-02",
+      "question": "Les risques réglementaires et bancaires sont-ils inclus dans le processus d’évaluation des risques ?",
+      "helpText": "Financial service dependencies can introduce operational, security, fraud, and conformité risks that should be assessed and treated.",
+      "expectedEvidence": [
+        "Third-party financial risk register",
+        "Payment provider risk review",
+        "Banking API dependency risk notes",
+        "KYC provider risk assessment"
+      ],
+      "severity": "high",
+      "weight": 1.3,
+      "appliesTo": [
+        "fintech"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D3-FIN-03",
+      "domainId": "D3",
+      "domainName": "Évaluation des risques et traitement des risques",
+      "controlCode": "D3-FIN-03",
+      "question": "Les actions de traitement des risques financiers sont-elles suivies jusqu’à leur résolution ?",
+      "helpText": "This checks whether financial security risks receive appropriate management visibility and decision-making.",
+      "expectedEvidence": [
+        "Leadership risk escalation records",
+        "Financial risk acceptance records",
+        "Risk treatment decision logs",
+        "Security steering committee notes"
+      ],
+      "severity": "critical",
+      "weight": 1.3,
+      "appliesTo": [
+        "fintech"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D3-HEALTH-01",
+      "domainId": "D3",
+      "domainName": "Évaluation des risques et traitement des risques",
+      "controlCode": "D3-HEALTH-01",
+      "question": "Les risques liés aux données de santé et à la continuité des soins sont-ils évalués régulièrement ?",
+      "helpText": "Healthcare évaluation des risques should consider confidentiality, integrity, and availability of systems that support patient services and clinical operations.",
+      "expectedEvidence": [
+        "Patient information risk register",
+        "Clinical system risk assessment",
+        "Healthcare service continuity risk notes",
+        "Appointment and billing system risk review"
+      ],
+      "severity": "critical",
+      "weight": 1.5,
+      "appliesTo": [
+        "healthcare"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D3-HEALTH-02",
+      "domainId": "D3",
+      "domainName": "Évaluation des risques et traitement des risques",
+      "controlCode": "D3-HEALTH-02",
+      "question": "Les risques associés aux partenaires médicaux externes sont-ils identifiés et traités ?",
+      "helpText": "External medical partners can affect patient information, service continuité, and operational reliability.",
+      "expectedEvidence": [
+        "Medical partner risk assessment",
+        "External service dependency register",
+        "Data exchange risk review",
+        "Partner treatment actions"
+      ],
+      "severity": "high",
+      "weight": 1.3,
+      "appliesTo": [
+        "healthcare"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D3-HEALTH-03",
+      "domainId": "D3",
+      "domainName": "Évaluation des risques et traitement des risques",
+      "controlCode": "D3-HEALTH-03",
+      "question": "Les actions de traitement des risques de sécurité sont-elles planifiées avec des priorités claires ?",
+      "helpText": "This checks whether healthcare-related risks are prioritized according to patient impact and operational criticality.",
+      "expectedEvidence": [
+        "Healthcare risk treatment plan",
+        "Priority risk list",
+        "Clinical availability treatment actions",
+        "Medical record protection plan"
+      ],
+      "severity": "critical",
+      "weight": 1.3,
+      "appliesTo": [
+        "healthcare"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D3-ECOM-01",
+      "domainId": "D3",
+      "domainName": "Évaluation des risques et traitement des risques",
+      "controlCode": "D3-ECOM-01",
+      "question": "Les risques de fraude aux paiements et de fuite de données clients sont-ils inclus dans l’évaluation ?",
+      "helpText": "E-commerce évaluation des risques should include the systems and processes that support customer trust, purchases, payments, and fulfilment.",
+      "expectedEvidence": [
+        "E-commerce risk register",
+        "Customer account risk review",
+        "Payment flow risk assessment",
+        "Order management risk notes"
+      ],
+      "severity": "critical",
+      "weight": 1.4,
+      "appliesTo": [
+        "ecommerce"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D3-ECOM-02",
+      "domainId": "D3",
+      "domainName": "Évaluation des risques et traitement des risques",
+      "controlCode": "D3-ECOM-02",
+      "question": "Les risques liés à la chaîne logistique et aux prestataires e-commerce sont-ils évalués ?",
+      "helpText": "Third-party e-commerce tools can create security, availability, fraud, and data exposure risks.",
+      "expectedEvidence": [
+        "E-commerce vendor risk register",
+        "Payment gateway risk review",
+        "Delivery provider dependency notes",
+        "Marketing and analytics platform risk assessment"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "ecommerce"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D3-ECOM-03",
+      "domainId": "D3",
+      "domainName": "Évaluation des risques et traitement des risques",
+      "controlCode": "D3-ECOM-03",
+      "question": "Les actions de traitement des risques sont-elles suivies et mises à jour régulièrement ?",
+      "helpText": "This checks whether the organization has practical treatment actions for the most common e-commerce security risks.",
+      "expectedEvidence": [
+        "Account protection treatment plan",
+        "Checkout availability action plan",
+        "Customer data exposure mitigation plan",
+        "Platform availability risk treatment"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "ecommerce"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D3-EDU-01",
+      "domainId": "D3",
+      "domainName": "Évaluation des risques et traitement des risques",
+      "controlCode": "D3-EDU-01",
+      "question": "Les risques liés aux données des étudiants et aux plateformes d’apprentissage sont-ils évalués ?",
+      "helpText": "Education évaluation des risques should cover the systems that support teaching, learning, exams, administration, and communication.",
+      "expectedEvidence": [
+        "Education risk register",
+        "Student information risk review",
+        "Exam system risk assessment",
+        "Learning platform risk notes"
+      ],
+      "severity": "critical",
+      "weight": 1.3,
+      "appliesTo": [
+        "education"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D3-EDU-02",
+      "domainId": "D3",
+      "domainName": "Évaluation des risques et traitement des risques",
+      "controlCode": "D3-EDU-02",
+      "question": "Les risques associés aux prestataires EdTech et plateformes externes sont-ils identifiés ?",
+      "helpText": "External platforms used for learning and administration can introduce security and availability risks.",
+      "expectedEvidence": [
+        "Education provider risk register",
+        "Cloud tool risk assessment",
+        "Video platform risk review",
+        "External learning platform treatment actions"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "education"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D3-EDU-03",
+      "domainId": "D3",
+      "domainName": "Évaluation des risques et traitement des risques",
+      "controlCode": "D3-EDU-03",
+      "question": "Les traitements des risques éducatifs sont-ils documentés avec des délais et des responsables ?",
+      "helpText": "This checks whether education-specific security risks are translated into concrete treatment actions.",
+      "expectedEvidence": [
+        "Exam integrity treatment plan",
+        "Student record protection plan",
+        "Access control improvement actions",
+        "Platform availability treatment notes"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "education"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D3-TEL-01",
+      "domainId": "D3",
+      "domainName": "Évaluation des risques et traitement des risques",
+      "controlCode": "D3-TEL-01",
+      "question": "Les risques liés aux infrastructures réseau critiques sont-ils évalués régulièrement ?",
+      "helpText": "Telecom and network operators should assess risks that could affect service continuité, infrastructure security, and customer connectivity.",
+      "expectedEvidence": [
+        "Network risk register",
+        "Infrastructure risk assessment",
+        "Monitoring platform risk review",
+        "Connectivity risk analysis"
+      ],
+      "severity": "critical",
+      "weight": 1.5,
+      "appliesTo": [
+        "telecom"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D3-TEL-02",
+      "domainId": "D3",
+      "domainName": "Évaluation des risques et traitement des risques",
+      "controlCode": "D3-TEL-02",
+      "question": "Les risques de continuité de service et de dépendances télécom sont-ils traités ?",
+      "helpText": "Network services often depend on external providers whose risks should be visible and treated.",
+      "expectedEvidence": [
+        "Upstream provider risk review",
+        "Data center risk assessment",
+        "Maintenance provider risk register",
+        "Critical dependency treatment plan"
+      ],
+      "severity": "critical",
+      "weight": 1.4,
+      "appliesTo": [
+        "telecom"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D3-TEL-03",
+      "domainId": "D3",
+      "domainName": "Évaluation des risques et traitement des risques",
+      "controlCode": "D3-TEL-03",
+      "question": "Les actions de traitement des risques télécom sont-elles suivies et actualisées ?",
+      "helpText": "This checks whether telecom-specific risks are prioritized according to operational impact and service continuité.",
+      "expectedEvidence": [
+        "Outage risk treatment plan",
+        "Infrastructure access treatment actions",
+        "Configuration risk mitigation notes",
+        "Incident response improvement plan"
+      ],
+      "severity": "critical",
+      "weight": 1.4,
+      "appliesTo": [
+        "telecom"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D3-SERV-01",
+      "domainId": "D3",
+      "domainName": "Évaluation des risques et traitement des risques",
+      "controlCode": "D3-SERV-01",
+      "question": "Les risques liés aux données confidentielles des clients sont-ils inclus dans l’évaluation des risques ?",
+      "helpText": "Professional services firms should assess risks that could affect client confidentiality, project delivery, and contract obligations.",
+      "expectedEvidence": [
+        "Client information risk register",
+        "Project workspace risk assessment",
+        "Contract repository risk review",
+        "Deliverable handling risk notes"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "professional_services"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D3-SERV-02",
+      "domainId": "D3",
+      "domainName": "Évaluation des risques et traitement des risques",
+      "controlCode": "D3-SERV-02",
+      "question": "Les risques associés aux consultants et prestataires externes sont-ils évalués ?",
+      "helpText": "Professional services often involve external personnel and collaboration tools that can introduce access and confidentiality risks.",
+      "expectedEvidence": [
+        "Contractor risk register",
+        "Remote work risk assessment",
+        "Collaboration tool risk review",
+        "Project access risk notes"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "professional_services"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D3-SERV-03",
+      "domainId": "D3",
+      "domainName": "Évaluation des risques et traitement des risques",
+      "controlCode": "D3-SERV-03",
+      "question": "Les actions de traitement des risques sont-elles communiquées aux équipes concernées ?",
+      "helpText": "This checks whether client-facing security risks are translated into concrete treatment actions.",
+      "expectedEvidence": [
+        "Client confidentiality treatment plan",
+        "Project access improvement actions",
+        "Deliverable backup or protection plan",
+        "Contractual risk treatment notes"
+      ],
+      "severity": "high",
+      "weight": 1.1,
+      "appliesTo": [
+        "professional_services"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D3-SME-01",
+      "domainId": "D3",
+      "domainName": "Évaluation des risques et traitement des risques",
+      "controlCode": "D3-SME-01",
+      "question": "Les risques principaux liés à vos systèmes informatiques et à vos données sont-ils identifiés ?",
+      "helpText": "For SMEs, évaluation des risques can start with practical risks such as account compromise, data loss, device failure, ransomware, email fraud, and service downtime.",
+      "expectedEvidence": [
+        "Simple risk register",
+        "Business-critical risk list",
+        "Risk workshop notes",
+        "IT provider risk review"
+      ],
+      "severity": "critical",
+      "weight": 1.3,
+      "appliesTo": [
+        "general_sme"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D3-SME-02",
+      "domainId": "D3",
+      "domainName": "Évaluation des risques et traitement des risques",
+      "controlCode": "D3-SME-02",
+      "question": "Existe-t-il une liste simple des risques sécurité avec les actions prévues ?",
+      "helpText": "This checks whether the company has clear actions to reduce the risks that matter most, even if the process is simple.",
+      "expectedEvidence": [
+        "Risk treatment action list",
+        "Backup improvement plan",
+        "Access control improvement actions",
+        "Security improvement roadmap"
+      ],
+      "severity": "high",
+      "weight": 1.2,
+      "appliesTo": [
+        "general_sme"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    },
+    {
+      "id": "D3-SME-03",
+      "domainId": "D3",
+      "domainName": "Évaluation des risques et traitement des risques",
+      "controlCode": "D3-SME-03",
+      "question": "Les actions pour réduire les risques sont-elles suivies régulièrement ?",
+      "helpText": "External IT support may create dependencies for sauvegardes, access, devices, email, and incident response. These risks should have an owner.",
+      "expectedEvidence": [
+        "IT provider risk notes",
+        "Provider responsibility matrix",
+        "Service dependency risk register",
+        "Provider review records"
+      ],
+      "severity": "high",
+      "weight": 1.1,
+      "appliesTo": [
+        "general_sme"
+      ],
+      "source": "assessment",
+      "answerScaleRef": "default_five_level_scale",
+      "optionalEvidenceReference": {
+        "enabled": true,
+        "label": "Note ou référence de preuve — optionnel",
+        "placeholder": "Ex. politique interne, registre, capture, procédure, lien, dossier partagé…",
+        "bonusPoints": 5,
+        "maxQuestionScore": 100
+      }
+    }
+  ],
+  "selectionLogic": {
+    "description": "For each company, return all core questions plus the sector-specific questions matching the company's sector.",
+    "expectedQuestionCountPerCompany": 9,
+    "pseudoCode": "questions = coreQuestions + sectorQuestions.filter(q => q.appliesTo.includes(company.sector))"
+  }
+}
