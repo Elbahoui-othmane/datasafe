@@ -110,6 +110,18 @@ function GapsPage() {
           <Card className="border-border h-fit flex flex-col min-h-0">
             <CardHeader className="pb-3 shrink-0"><CardTitle className="text-sm">Gap inbox</CardTitle></CardHeader>
             <CardContent className="p-0 flex-1 min-h-0 overflow-y-auto" style={{ maxHeight: "60vh" }}>
+              {gaps.length === 0 ? (
+                <div className="flex flex-col items-center justify-center py-12 px-4 text-center">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[var(--primary-soft)] mb-3">
+                    <AlertOctagon className="h-6 w-6 text-[var(--primary-dark)]" />
+                  </div>
+                  <p className="text-sm font-medium">No gaps identified yet</p>
+                  <p className="text-xs text-muted-foreground mt-1 max-w-[200px]">Gaps will appear when controls are incomplete or evidence is missing.</p>
+                  <Button asChild variant="outline" size="sm" className="mt-4">
+                    <Link to="/controls">View controls</Link>
+                  </Button>
+                </div>
+              ) : (
               <ul>
                 {gaps.map((g) => (
                   <li key={g.id}>
@@ -131,6 +143,7 @@ function GapsPage() {
                   </li>
                 ))}
               </ul>
+              )}
             </CardContent>
           </Card>
 
@@ -164,7 +177,12 @@ function GapsPage() {
                             </div>
                           </Link>
                         ))}
-                        {items.length === 0 && <div className="text-[11px] text-muted-foreground text-center py-4">No items</div>}
+                        {items.length === 0 && (
+                          <div className="text-[11px] text-muted-foreground text-center py-6">
+                            <span className="block font-medium text-foreground/70">No {lane.key.toLowerCase()} evidence</span>
+                            <span className="mt-1 block">Evidence items will appear here as gaps progress.</span>
+                          </div>
+                        )}
                       </div>
                     </div>
                   );
@@ -183,7 +201,10 @@ function GapsPage() {
                 <StatusBadge variant={statusVariant(selected.status)}>{selected.status}</StatusBadge>
               </div>
               <div className="mt-4 space-y-3 text-sm">
-                <Field label="Linked control" value={selected.linkedControl} />
+                <div className="flex justify-between gap-3">
+                  <span className="text-xs text-muted-foreground">Linked control</span>
+                  <Link to="/controls/$id" params={{ id: selected.linkedControl.replace("CTL-", "") }} className="text-right text-sm hover:text-[var(--primary)] hover:underline">{selected.linkedControl}</Link>
+                </div>
                 <Field label="Framework" value={selected.framework} />
                 <Field label="Owner" value={selected.owner} />
                 <Field label="Due" value={selected.dueDate} />

@@ -77,6 +77,26 @@ function TasksPage() {
           <StatCard label="Completed this quarter" value={tasks.filter((t) => t.status === "Closed").length.toString()} icon={CheckCheck} accent />
         </div>
 
+        {tasks.length === 0 ? (
+          <Card className="border-border">
+            <CardContent className="flex flex-col items-center justify-center py-16 text-center">
+              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[var(--primary-soft)] mb-4">
+                <ListTodo className="h-7 w-7 text-[var(--primary-dark)]" />
+              </div>
+              <h3 className="text-lg font-semibold">No tasks created yet</h3>
+              <p className="text-sm text-muted-foreground mt-1 max-w-sm">Tasks will appear when remediation work is generated from gaps or risks, or you can create tasks manually.</p>
+              <div className="flex items-center gap-3 mt-5">
+                <Button asChild variant="outline">
+                  <Link to="/gaps">View gaps</Link>
+                </Button>
+                <Button className="bg-[var(--primary)] hover:bg-[var(--primary-hover)] text-white" onClick={() => setDialogOpen(true)}>
+                  <Plus className="h-4 w-4" />Create task
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        ) : (
+        <>
         <div className="flex items-center justify-between">
           <div className="inline-flex rounded-lg border border-border bg-card p-0.5">
             <button onClick={() => setView("kanban")}
@@ -126,7 +146,12 @@ function TasksPage() {
                         </div>
                       </Link>
                     ))}
-                    {items.length === 0 && <div className="text-[11px] text-muted-foreground text-center py-6">No tasks</div>}
+                    {items.length === 0 && (
+                      <div className="text-[11px] text-muted-foreground text-center py-8 px-2">
+                        <span className="block font-medium text-foreground/70">No {lane.key.toLowerCase()} tasks</span>
+                        <span className="mt-1 block">Tasks will move here as work progresses.</span>
+                      </div>
+                    )}
                   </div>
                 </div>
               );
