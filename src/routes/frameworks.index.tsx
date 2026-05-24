@@ -77,14 +77,22 @@ function FrameworksPage() {
                 </div>
                 <div className="mt-5 flex items-center justify-between">
                   <span className="text-xs text-muted-foreground">{f.completed}/{f.total} controls</span>
-                  <Button size="sm" variant="outline" onClick={() => f.status === "Snooze" ? toast.success("Snoozed") : nav({ to: "/frameworks/$id", params: { id: f.id } })}>
-                    {f.status}<ChevronRight className="h-3 w-3" />
+                  <Button size="sm" variant="outline" onClick={() => nav({ to: "/frameworks/$id", params: { id: f.id } })}>
+                    View details<ChevronRight className="h-3 w-3" />
                   </Button>
                 </div>
               </CardContent>
             </Card>
           ))}
-          {tab === "custom" && <div className="col-span-full text-sm text-muted-foreground py-10 text-center">No custom frameworks yet.</div>}
+          {tab === "custom" && (
+            <div className="col-span-full flex flex-col items-center justify-center py-16 text-center">
+              <div className="text-sm font-medium text-foreground">No custom frameworks yet</div>
+              <p className="mt-1 text-xs text-muted-foreground max-w-xs">Custom frameworks can be added to extend your compliance program beyond built-in standards.</p>
+              <Button className="mt-4 bg-[var(--primary)] hover:bg-[var(--primary-hover)] text-white" size="sm" onClick={() => setDialogOpen(true)}>
+                <Plus className="h-3.5 w-3.5" />Add framework
+              </Button>
+            </div>
+          )}
         </div>
       </div>
     </>

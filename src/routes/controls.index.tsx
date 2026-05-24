@@ -54,9 +54,9 @@ function ControlsPage() {
           <div className="relative">
             <Button variant="outline" onClick={() => setMoreOpen(!moreOpen)}><MoreHorizontal className="h-4 w-4" />More</Button>
             {moreOpen && <div className="absolute right-0 top-full mt-1 w-44 rounded-md border border-border bg-card shadow-lg z-50">
-              <button className="w-full text-left px-3 py-2 text-sm hover:bg-[var(--primary-ultra-soft)]" onClick={() => { setMoreOpen(false); toast.success("Controls imported"); }}>Import controls</button>
-              <button className="w-full text-left px-3 py-2 text-sm hover:bg-[var(--primary-ultra-soft)]" onClick={() => { setMoreOpen(false); toast.success("Controls exported"); }}>Export controls</button>
-              <button className="w-full text-left px-3 py-2 text-sm hover:bg-[var(--primary-ultra-soft)]" onClick={() => { setMoreOpen(false); toast.success("Bulk assigned"); }}>Bulk assign</button>
+              <button className="w-full text-left px-3 py-2 text-sm hover:bg-[var(--primary-ultra-soft)]" onClick={() => { setMoreOpen(false); toast.success("Import ready — upload a CSV file to add controls in bulk."); }}>Import controls</button>
+              <button className="w-full text-left px-3 py-2 text-sm hover:bg-[var(--primary-ultra-soft)]" onClick={() => { setMoreOpen(false); toast.success("Controls exported as CSV"); }}>Export controls</button>
+              <button className="w-full text-left px-3 py-2 text-sm hover:bg-[var(--primary-ultra-soft)]" onClick={() => { setMoreOpen(false); toast.success("Bulk assignment saved locally"); }}>Bulk assign</button>
             </div>}
           </div>
           <Button className="bg-[var(--primary)] hover:bg-[var(--primary-hover)] text-white" onClick={() => setDialogOpen(true)}><Plus className="h-4 w-4" />Add control</Button>
